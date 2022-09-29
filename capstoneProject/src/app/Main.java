@@ -12,7 +12,9 @@ public class Main extends Application{
     public static void main(String[] args) {
 		launch(args);
                 System.out.println("");
-                System.out.println("");
+                  System.out.println("gbhjn");
+                  System.out.println("new change");
+                
 	}
 
 	@Override
