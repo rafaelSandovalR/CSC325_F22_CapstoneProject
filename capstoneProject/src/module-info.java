@@ -1,7 +1,9 @@
-
 module project {
+	exports controller to javafx.graphics;
 	exports app to javafx.graphics;
-	opens app to javafx.base;
+	exports model to javafx.graphics;
+	opens model to javafx.base;
+	opens controller to javafx.fxml;
 
 	requires javafx.base;
 	requires javafx.controls;
@@ -10,7 +12,4 @@ module project {
 	requires java.desktop;
 	requires javafx.swing;
 	requires jdk.compiler;
-    requires javafx.swt;
-    requires javafx.media;
-    requires javafx.web;
 }
