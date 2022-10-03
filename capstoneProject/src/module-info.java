@@ -12,4 +12,9 @@ module project {
 	requires java.desktop;
 	requires javafx.swing;
 	requires jdk.compiler;
+    requires com.fasterxml.jackson.annotation;
+    requires com.fasterxml.jackson.core;
+    requires com.fasterxml.jackson.databind;
+    requires org.json;
+    requires org.xerial.sqlitejdbc;
 }

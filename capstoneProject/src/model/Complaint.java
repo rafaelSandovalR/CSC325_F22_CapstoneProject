@@ -38,7 +38,7 @@ public class Complaint {
         this.complaint_id = rand();
     }
 
-    public String rand(){
+    private String rand(){
         String str = "";
         for(int i = 0; i < 6; i++){
             str = str + (Math.random() * (10 + 1 - 0)) + 0;
