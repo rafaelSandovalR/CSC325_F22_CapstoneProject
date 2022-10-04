@@ -1,13 +1,14 @@
 package model;
 
 public class Criminal {
-    
+
     private String fName;
     private String lName;
     private String address;
     private String type_of_crime;
     private String date_of_crime;
     private String punishment_period;
+    private String id;
 
     public Criminal(String fName, String lName, String address, String type_of_crime, String date_of_crime, String punishment_period) {
         this.fName = fName;
@@ -16,6 +17,22 @@ public class Criminal {
         this.type_of_crime = type_of_crime;
         this.date_of_crime = date_of_crime;
         this.punishment_period = punishment_period;
+        this.id = rand();
+    }
+
+    private String rand() {
+        int counter = 0;
+        String str = "";
+        while (counter < 7) {
+            int random = (int) (Math.random() * (10 + 1 - 0)) + 0;
+            str = str + random;
+            counter++;
+        }
+        if (StoreAndBackUpData.getOfficerAccounts().containsKey(str)) {
+            return rand();
+        }else{
+            return str;
+        }
     }
 
     public String getfName() {
