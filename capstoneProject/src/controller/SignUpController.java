@@ -24,7 +24,13 @@ public class SignUpController implements Initializable {
     private String fName;
     private String lName;
     private TreeMap<String, Officer> officerAccounts = StoreAndBackUpData.getOfficerAccounts();
+    private int dCode = 4651;
 
+    @FXML
+    private TextField departmentCodeField;
+
+    @FXML
+    private Label departmentCodeLabel;
     @FXML
     private TextField badgeNumberField;
 
@@ -54,6 +60,7 @@ public class SignUpController implements Initializable {
         if (fName.isBlank()) {
             fNameLabel.setText("Enter your first name");
             lNameLabel.setText("");
+            departmentCodeLabel.setText("");
         } else {
             String type = "";
             for (int i = 0; i < fName.length(); i++) {
@@ -65,10 +72,12 @@ public class SignUpController implements Initializable {
             if (type.compareTo("digit") == 0) {
                 fNameLabel.setText("Enter letters only");
                 lNameLabel.setText("");
+                departmentCodeLabel.setText("");
             } else {
                 if (lName.isBlank()) {
                     lNameLabel.setText("Enter your last name");
                     fNameLabel.setText("");
+                    departmentCodeLabel.setText("");
                 } else {
                     for (int i = 0; i < lName.length(); i++) {
                         char ch = lName.charAt(i);
@@ -79,15 +88,37 @@ public class SignUpController implements Initializable {
                     if (type.compareTo("digit") == 0) {
                         lNameLabel.setText("Enter letters only");
                         fNameLabel.setText("");
+                        departmentCodeLabel.setText("");
                     } else {
-                        Officer officer = new Officer(fName, lName);
-                        officerAccounts.put(officer.getBadgeN(), officer);
-                        badgeNumberField.setText("Badge Number: " + officer.getBadgeN());
-                        submitBtn.setDisable(true);
-
+                        if (departmentCodeField.getText().isBlank()) {
+                            departmentCodeLabel.setText("Enter your department code");
+                            fNameLabel.setText("");
+                            lNameLabel.setText("");
+                        } else {
+                            for (int i = 0; i < departmentCodeField.getText().length(); i++) {
+                                char ch = lName.charAt(i);
+                                if (Character.isLetter(ch)) {
+                                    type = "letter";
+                                }
+                            }
+                            if (type.compareTo("letter") == 0) {
+                                departmentCodeLabel.setText("Enter digits only");
+                                fNameLabel.setText("");
+                                lNameLabel.setText("");
+                            } else {
+                                if (dCode != (Integer.parseInt(departmentCodeField.getText()))) {
+                                    departmentCodeLabel.setText("Department code does not match");
+                                    fNameLabel.setText("");
+                                    lNameLabel.setText("");
+                                } else {
+                                    Officer officer = new Officer(fName, lName);
+                                    officerAccounts.put(officer.getBadgeN(), officer);
+                                    badgeNumberField.setText("Badge Number: " + officer.getBadgeN());
+                                    submitBtn.setDisable(true);
+                                }
+                            }
+                        }
                     }
-                }
-                {
                 }
             }
         }
