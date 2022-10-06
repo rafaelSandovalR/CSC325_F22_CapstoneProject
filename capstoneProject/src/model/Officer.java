@@ -6,25 +6,10 @@ public class Officer {
     private String lName;
     private String badgeN;
 
-    public Officer(String fName, String lName) {
+    public Officer(String fName, String lName, String badgeN) {
         this.fName = fName;
         this.lName = lName;
-        this.badgeN = rand();
-    }
-
-    private String rand() {
-        int counter = 0;
-        String str = "";
-        while (counter < 7) {
-            int random = (int) (Math.random() * (10 + 1 - 0)) + 0;
-            str = str + random;
-            counter++;
-        }
-        if (StoreAndBackUpData.getOfficerAccounts().containsKey(str)) {
-            return rand();
-        }else{
-            return str;
-        }
+        this.badgeN = badgeN;
     }
 
     public String getfName() {

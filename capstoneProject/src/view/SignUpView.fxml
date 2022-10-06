@@ -26,7 +26,7 @@
                   </TextField>
                </children>
             </HBox>
-            <TextField fx:id="badgeNumberField" disable="true" editable="false" layoutX="201.0" layoutY="217.0" prefHeight="35.0" prefWidth="311.0" promptText="BadgeNumber">
+            <TextField fx:id="badgeNumberField" disable="true" editable="false" layoutX="379.0" layoutY="217.0" prefHeight="35.0" prefWidth="269.0" promptText="BadgeNumber">
                <font>
                   <Font name="Arial Bold" size="17.0" />
                </font>
@@ -38,12 +38,12 @@
             </Button>
             <Label fx:id="fNameLabel" layoutX="93.0" layoutY="183.0" prefHeight="23.0" prefWidth="188.0" textFill="#ee2828">
                <font>
-                  <Font name="Arial Bold" size="12.0" />
+                  <Font name="Arial Bold" size="13.0" />
                </font>
             </Label>
             <Label fx:id="lNameLabel" layoutX="383.0" layoutY="178.0" prefHeight="23.0" prefWidth="188.0" textFill="#f20b0b">
                <font>
-                  <Font name="Arial Bold" size="12.0" />
+                  <Font name="Arial Bold" size="13.0" />
                </font>
             </Label>
             <Button layoutY="-1.0" mnemonicParsing="false" onAction="#goBackToHomePage" prefHeight="35.0" prefWidth="72.0" text="Back">
@@ -51,6 +51,16 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
+            <TextField fx:id="departmentCodeField" layoutX="91.0" layoutY="219.0" prefHeight="35.0" prefWidth="188.0" promptText="Department Code">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </TextField>
+            <Label fx:id="departmentCodeLabel" layoutX="91.0" layoutY="257.0" prefHeight="23.0" prefWidth="188.0" textFill="#ee2828">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
