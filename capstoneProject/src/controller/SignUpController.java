@@ -111,7 +111,7 @@ public class SignUpController implements Initializable {
                                     fNameLabel.setText("");
                                     lNameLabel.setText("");
                                 } else {
-                                    Officer officer = new Officer(fName, lName);
+                                    Officer officer = new Officer(fName, lName, rand());
                                     officerAccounts.put(officer.getBadgeN(), officer);
                                     badgeNumberField.setText("Badge Number: " + officer.getBadgeN());
                                     submitBtn.setDisable(true);
@@ -121,6 +121,21 @@ public class SignUpController implements Initializable {
                     }
                 }
             }
+        }
+    }
+
+    private String rand() {
+        int counter = 0;
+        String str = "";
+        while (counter < 7) {
+            int random = (int) (Math.random() * (10 + 1 - 0)) + 0;
+            str = str + random;
+            counter++;
+        }
+        if (StoreAndBackUpData.getOfficerAccounts().containsKey(str)) {
+            return rand();
+        } else {
+            return str;
         }
     }
 
