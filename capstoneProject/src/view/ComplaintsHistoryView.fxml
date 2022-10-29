@@ -1,23 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="645.0" prefWidth="650.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
-    <stylesheets>
-        <URL value="@coplaintshistoryview.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="645.0" prefWidth="650.0" stylesheets="@../styleSheets/ComplaintHistoryPageSS.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ComplaintHistoryController">
    <children>
-      <Pane layoutX="78.0" layoutY="6.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutY="14.0" prefHeight="645.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ListView fx:id="listView" layoutX="10.0" layoutY="51.0" prefHeight="131.0" prefWidth="631.0" />
-            <Label layoutX="233.0" layoutY="7.0" prefHeight="32.0" prefWidth="185.0" text="Complaint History">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="209.0" layoutY="52.0" prefHeight="32.0" prefWidth="210.0" text="Complaint History">
                <font>
                   <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableView" layoutX="100.0" layoutY="166.0" prefHeight="458.0" prefWidth="447.0">
+              <columns>
+                  <TableColumn fx:id="counter" prefWidth="33.0" text="#" />
+                <TableColumn fx:id="idColumn" prefWidth="141.0" text="ID" />
+                <TableColumn fx:id="complaintColumn" minWidth="-Infinity" prefWidth="211.0" text="COMPLAINANT">
+                     <columns>
+                        <TableColumn fx:id="fNameColumn" prefWidth="75.0" text="Frist Name" />
+                        <TableColumn fx:id="lNameColumn" prefWidth="75.0" text="Last Name" />
+                     </columns>
+                  </TableColumn>
+                  <TableColumn fx:id="creationDateColumn" prefWidth="138.0" text="CREATION DATE" />
+              </columns>
+               <cursor>
+                  <Cursor fx:constant="CLOSED_HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TableView>
+            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#backToLoggedInPage" prefHeight="32.0" prefWidth="64.0" text="Back">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="showComplaintBtn" layoutX="245.0" layoutY="116.0" mnemonicParsing="false" onAction="#goToShowComplaint" prefHeight="25.0" prefWidth="139.0" text="Show Complaint" />
+            <Label fx:id="alertLabel" layoutX="390.0" layoutY="118.0" prefHeight="25.0" prefWidth="232.0" text="Select a complaint first!" textFill="#f51a1a">
+               <font>
+                  <Font name="System Bold" size="12.0" />
                </font>
             </Label>
          </children>

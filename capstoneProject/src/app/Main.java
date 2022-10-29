@@ -19,11 +19,11 @@ public class Main extends Application{
 	public void start(Stage arg0) throws Exception {
             StoreAndBackUpData dt = new StoreAndBackUpData();
             
-		Parent root = FXMLLoader.load(getClass().getResource("/view/SignUpView.fxml"));
-		Scene scene = new Scene(root, 700, 700);
+		Parent root = FXMLLoader.load(getClass().getResource("/view/HomePageView.fxml"));
+		Scene scene = new Scene(root, 650, 645);
 		Stage primaryStage = new Stage();
-		primaryStage.setWidth(700);
-		primaryStage.setHeight(700);
+		primaryStage.setWidth(650);
+		primaryStage.setHeight(645);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
