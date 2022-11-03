@@ -27,6 +27,9 @@ public class SignUpController implements Initializable {
     private int dCode = 4651;
 
     @FXML
+    private Label confirmLabel;
+
+    @FXML
     private TextField departmentCodeField;
 
     @FXML
@@ -48,6 +51,8 @@ public class SignUpController implements Initializable {
 
     @FXML
     private Button submitBtn;
+    @FXML
+    private Button backBtn;
 
     @FXML
     private Pane pane;
@@ -96,9 +101,10 @@ public class SignUpController implements Initializable {
                             lNameLabel.setText("");
                         } else {
                             for (int i = 0; i < departmentCodeField.getText().length(); i++) {
-                                char ch = lName.charAt(i);
+                                char ch = departmentCodeField.getText().charAt(i);
                                 if (Character.isLetter(ch)) {
                                     type = "letter";
+                                    System.err.println(i + " " + ch);
                                 }
                             }
                             if (type.compareTo("letter") == 0) {
@@ -106,15 +112,17 @@ public class SignUpController implements Initializable {
                                 fNameLabel.setText("");
                                 lNameLabel.setText("");
                             } else {
-                                if (dCode != (Integer.parseInt(departmentCodeField.getText()))) {
-                                    departmentCodeLabel.setText("Department code does not match");
-                                    fNameLabel.setText("");
-                                    lNameLabel.setText("");
-                                } else {
+                                if (dCode == (Integer.parseInt(departmentCodeField.getText()))) {
+                                    departmentCodeLabel.setText("");
                                     Officer officer = new Officer(fName, lName, rand());
                                     officerAccounts.put(officer.getBadgeN(), officer);
                                     badgeNumberField.setText("Badge Number: " + officer.getBadgeN());
                                     submitBtn.setDisable(true);
+                                    confirmLabel.setVisible(true);
+                                } else {
+                                    departmentCodeLabel.setText("Department code does not match");
+                                    fNameLabel.setText("");
+                                    lNameLabel.setText("");
                                 }
                             }
                         }
@@ -127,7 +135,7 @@ public class SignUpController implements Initializable {
     private String rand() {
         int counter = 0;
         String str = "";
-        while (counter < 7) {
+        while (counter < 4) {
             int random = (int) (Math.random() * (10 + 1 - 0)) + 0;
             str = str + random;
             counter++;
@@ -159,5 +167,6 @@ public class SignUpController implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         submitBtn.setDisable(false);
+        confirmLabel.setVisible(false);
     }
 }

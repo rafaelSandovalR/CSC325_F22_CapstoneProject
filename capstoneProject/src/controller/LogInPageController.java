@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -18,6 +19,18 @@ public class LogInPageController {
 
     private String badgeN;
     private TreeMap<String, Officer> officerAccounts = StoreAndBackUpData.getOfficerAccounts();
+
+    @FXML
+    private Button backBtn;
+
+    @FXML
+    private Button logInBtn;
+
+    @FXML
+    private Button signUpBtn;
+
+    @FXML
+    private Label titleLabel;
 
     @FXML
     private Label badgeNLabel;
@@ -32,19 +45,25 @@ public class LogInPageController {
 
     @FXML
     void logInMethod(ActionEvent event) throws IOException {
-
-        if (badgeN.isBlank()) {
+        badgeN = badgeNumberField.getText();
+        if (badgeN.length() == 0) {
             badgeNLabel.setText("Enter your badge number");
         } else {
-            if (!officerAccounts.containsKey(badgeNumberField.getText())) {
+            System.err.println("called");
+            if (!officerAccounts.containsKey(badgeN)) {
                 badgeNLabel.setText("Badge number not found");
-            }else{
+            } else {
                 changeScene(event, "/view/LoggedInView.fxml");
             }
 
         }
     }
-    
+
+    @FXML
+    void signUpMethod(ActionEvent event) throws IOException {
+        changeScene(event, "/view/SignUpView.fxml");
+    }
+
     public void changeScene(ActionEvent event, String str) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(str));

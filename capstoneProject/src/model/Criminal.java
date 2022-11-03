@@ -9,10 +9,15 @@ public class Criminal {
     private String date_of_crime;
     private String punishment_period;
     private String id;
+    private String gender;
+    private String age;
+    
 
-    public Criminal(String fName, String lName, String address, String type_of_crime, String date_of_crime, String punishment_period) {
+    public Criminal(String fName, String lName, String gender, String age, String address, String type_of_crime, String date_of_crime, String punishment_period) {
         this.fName = fName;
         this.lName = lName;
+        this.gender = gender;
+        this.age = age;
         this.address = address;
         this.type_of_crime = type_of_crime;
         this.date_of_crime = date_of_crime;

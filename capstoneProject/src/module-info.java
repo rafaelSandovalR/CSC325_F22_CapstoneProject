@@ -4,6 +4,7 @@ module project {
 	exports model to javafx.graphics;
 	opens model to javafx.base;
 	opens controller to javafx.fxml;
+        opens app to javafx.fxml;
 
 	requires javafx.base;
 	requires javafx.controls;
