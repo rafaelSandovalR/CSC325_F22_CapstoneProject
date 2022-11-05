@@ -39,6 +39,10 @@ public class Criminal {
             return str;
         }
     }
+    
+    public String getId(){
+        return id;
+    }
 
     public String getfName() {
         return fName;

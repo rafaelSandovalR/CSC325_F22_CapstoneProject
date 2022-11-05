@@ -27,7 +27,7 @@ public class LoggedInPageController {
 
     @FXML
     void addCriminal(ActionEvent event) throws IOException {
-        changeScene(event, "/view/AddCriminal");
+        changeScene(event, "/view/AddCriminalView.fxml");
     }
 
     @FXML
