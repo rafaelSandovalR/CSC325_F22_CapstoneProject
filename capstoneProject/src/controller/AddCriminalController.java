@@ -82,8 +82,8 @@ public class AddCriminalController {
              "Minor Outlying Islands", "Mississippi", "Missouri", "Montana", "Nebraska",
              "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina",
              "North Dakota", "Northern Mariana Islands", "Ohio", "Oklahoma", "Oregon", "Pennsylvania",
-             "Puerto Rico", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas",
-             "U.S. Virgin Islands", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming");
+             "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas",
+             "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming");
     
     private ObservableList<String> raceList = FXCollections
             .observableArrayList("White", "Black or African American", "American Indian or Alaska Native",
@@ -93,10 +93,10 @@ public class AddCriminalController {
             .observableArrayList("Hispanic or Latino", "Not Hispanic or Latino");
     
     private ObservableList<String> eyeColorList = FXCollections
-        .observableArrayList("Brown", "Blue", "Green", "Hazel", "Amber", "Gray");
+            .observableArrayList("Brown", "Blue", "Green", "Hazel", "Amber", "Gray");
     
     private ObservableList<String> hairColorList = FXCollections
-    .observableArrayList("Black", "Blonde", "Brown", "Red", "White");
+            .observableArrayList("Black", "Blonde", "Brown", "Red", "White");
  
     @FXML
     private void initialize(){
@@ -130,7 +130,7 @@ public class AddCriminalController {
         {
             if (MaleRadio.isSelected())
             {
-              sex = MaleRadio.getText();
+                sex = MaleRadio.getText();
             }
             else
             {
@@ -153,7 +153,7 @@ public class AddCriminalController {
         a.show();
         Criminal c = new Criminal(firstName, lastName, sex, dateOfBirth, address, "type", "date", "punishment");
         StoreAndBackUpData.getCriminals().put(c.getId(), c);
-        returnButton.setVisible(false);
+        addButton.setVisible(false);
         
         System.out.println(c.toString());
     }
