@@ -20,4 +20,5 @@ module project {
     requires org.json;
     requires org.xerial.sqlitejdbc;
 */
+    requires java.base;
 }

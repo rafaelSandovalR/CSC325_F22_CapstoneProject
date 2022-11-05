@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="650.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CriminalHistoryViewController">
    <children>
       <VBox prefHeight="650.0" prefWidth="650.0">
          <children>
@@ -30,13 +29,13 @@
             </Button>
             <TableView fx:id="criminalTable" prefHeight="200.0">
               <columns>
-                <TableColumn prefWidth="100.0" text="ID" />
-                <TableColumn prefWidth="125.0" text="First Name" />
-                  <TableColumn prefWidth="125.0" text="Last Name" />
-                  <TableColumn prefWidth="60.0" text="Age" />
-                  <TableColumn prefWidth="50.0" text="Sex" />
-                  <TableColumn prefWidth="90.0" text="Race" />
-                  <TableColumn prefWidth="90.0" text="Hair Color" />
+                <TableColumn fx:id="idColumn" prefWidth="100.0" text="ID" />
+                <TableColumn fx:id="fnameColumn" prefWidth="125.0" text="First Name" />
+                  <TableColumn fx:id="lnameColumn" prefWidth="125.0" text="Last Name" />
+                  <TableColumn fx:id="ageColumn" prefWidth="60.0" text="Age" />
+                  <TableColumn fx:id="sexColumn" prefWidth="50.0" text="Sex" />
+                  <TableColumn fx:id="raceColumn" prefWidth="90.0" text="Race" />
+                  <TableColumn fx:id="hiarColorColumn" prefWidth="90.0" text="Hair Color" />
               </columns>
             </TableView>
          </children>
