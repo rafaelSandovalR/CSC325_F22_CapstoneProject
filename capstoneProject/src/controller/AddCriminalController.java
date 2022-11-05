@@ -1,9 +1,14 @@
 package controller;
 
+import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -11,6 +16,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 import model.Criminal;
 import model.StoreAndBackUpData;
 
@@ -156,6 +162,19 @@ public class AddCriminalController {
         addButton.setVisible(false);
         
         System.out.println(c.toString());
+    }
+    
+    @FXML
+    void backToLoggedIn(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/LoggedInView.fxml"));
+        Parent root = loader.load();
+        Scene scene = new Scene(root, 700, 700);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setWidth(700);
+        window.setHeight(700);
+        window.setScene(scene);
+        window.show();
     }
 
 }

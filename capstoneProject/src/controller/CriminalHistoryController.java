@@ -24,6 +24,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Criminal;
 import model.StoreAndBackUpData;
+import model.Uniteable;
 
 
 public class CriminalHistoryController implements Initializable {
@@ -73,13 +74,13 @@ public class CriminalHistoryController implements Initializable {
         lnameColumn.setCellValueFactory(new PropertyValueFactory<>("lName"));
         ageColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
         sexColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
-        raceColumn.setCellValueFactory(new PropertyValueFactory<>("NA"));
-        hairColumn.setCellValueFactory(new PropertyValueFactory<>("NA"));     
+       // raceColumn.setCellValueFactory(new PropertyValueFactory<>("NA"));
+       // hairColumn.setCellValueFactory(new PropertyValueFactory<>("NA"));     
         criminalTable.setItems(list);
     }
 
     @FXML
-    private void backToLoggedInPage(ActionEvent event) throws IOException {
+    private void backButtonPress(ActionEvent event) throws IOException {
         changeScene(event, "/view/LoggedInView.fxml");
     }
     

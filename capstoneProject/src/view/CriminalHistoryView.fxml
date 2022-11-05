@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.CriminalHistoryViewController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CriminalHistoryController">
    <children>
       <VBox prefHeight="650.0" prefWidth="650.0">
          <children>
-            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#backToLoggedInPage" prefHeight="32.0" prefWidth="64.0" text="Back" />
+            <Button fx:id="backBtn" mnemonicParsing="false" onAction="#backButtonPress" prefHeight="32.0" prefWidth="64.0" text="Back" />
             <Label alignment="TOP_CENTER" prefWidth="650.0" text="List Of Criminals">
                <font>
                   <Font name="System Bold" size="16.0" />
@@ -35,7 +35,7 @@
                   <TableColumn fx:id="ageColumn" prefWidth="60.0" text="Age" />
                   <TableColumn fx:id="sexColumn" prefWidth="50.0" text="Sex" />
                   <TableColumn fx:id="raceColumn" prefWidth="90.0" text="Race" />
-                  <TableColumn fx:id="hiarColorColumn" prefWidth="90.0" text="Hair Color" />
+                  <TableColumn fx:id="hairColumn" prefWidth="90.0" text="Hair Color" />
               </columns>
             </TableView>
          </children>

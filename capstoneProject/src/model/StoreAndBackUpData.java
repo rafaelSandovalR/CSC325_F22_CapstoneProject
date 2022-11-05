@@ -30,8 +30,8 @@ public class StoreAndBackUpData {
     }
     
 
-    public void addCriminal(String id, Criminal user) {
-        criminals.put(id, user);
+    public void addCriminal(String id, Criminal criminal) {
+        criminals.put(id, criminal);
     }
 
     public static TreeMap<String, Criminal> getCriminals() {

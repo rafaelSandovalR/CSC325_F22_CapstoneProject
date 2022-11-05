@@ -228,7 +228,7 @@
          <top>
             <HBox prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="returnButton" mnemonicParsing="false" text="Return home">
+                  <Button fx:id="returnButton" mnemonicParsing="false" onAction="#backToLoggedIn" text="Return home">
                      <HBox.margin>
                         <Insets left="20.0" top="20.0" />
                      </HBox.margin>

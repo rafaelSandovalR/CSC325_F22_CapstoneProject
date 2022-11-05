@@ -47,7 +47,7 @@ public class LoggedInPageController {
 
     @FXML
     void viewCriminalHistoryMethod(ActionEvent event) throws IOException {
-        changeScene(event, "view/CriminalHistoryView.fxml");
+        changeScene(event, "/view/CriminalHistoryView.fxml");
     }
 
     public void changeScene(ActionEvent event, String str) throws IOException {
