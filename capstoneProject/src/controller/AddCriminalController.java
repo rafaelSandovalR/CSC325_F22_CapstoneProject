@@ -131,26 +131,14 @@ public class AddCriminalController {
         MaleRadio.setToggleGroup(sexChoice);
         FemaleRadio.setToggleGroup(sexChoice);
 
-
-        addButton.setOnAction(e -> 
-        {
-            if (MaleRadio.isSelected())
-            {
-                sex = MaleRadio.getText();
-            }
-            else
-            {
-                sex = FemaleRadio.getText();
-            }           
-        }
-        );
+        sex = ((RadioButton)sexChoice.getSelectedToggle()).getText();
 
         height = feetField.getText() + "' " + inchesField.getText() + "\"";
         weight = weightField.getText();
-        raceComboBox.getValue();
-        ethnicityComboBox.getValue();
-        eyeColorComboBox.getValue();
-        hairColorComboBox.getValue();
+        race = raceComboBox.getValue();
+        ethnicity = ethnicityComboBox.getValue();
+        eyeColor = eyeColorComboBox.getValue();
+        hairColor = hairColorComboBox.getValue();
         
         
         Alert a = new Alert(AlertType.NONE);

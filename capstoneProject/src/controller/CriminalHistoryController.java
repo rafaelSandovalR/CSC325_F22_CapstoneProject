@@ -69,9 +69,9 @@ public class CriminalHistoryController implements Initializable {
 
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         fnameColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getfName()));
-        lnameColumn.setCellValueFactory(new PropertyValueFactory<>("lName"));
-        ageColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
-        sexColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));     
+        lnameColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getlName()));
+        sexColumn.setCellValueFactory(data-> new SimpleStringProperty(data.getValue().getSex()));   
+        ageColumn.setCellValueFactory(data-> new SimpleStringProperty(data.getValue().getDate_of_birth()));
         criminalTable.setItems(list);
     }
 
