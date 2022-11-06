@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package controller;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.TreeMap;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -69,18 +66,17 @@ public class CriminalHistoryController implements Initializable {
     }
     
     public void showCriminalList(){
+
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        fnameColumn.setCellValueFactory(new PropertyValueFactory<>("fName"));
+        fnameColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getfName()));
         lnameColumn.setCellValueFactory(new PropertyValueFactory<>("lName"));
         ageColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
-        sexColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
-       // raceColumn.setCellValueFactory(new PropertyValueFactory<>("NA"));
-       // hairColumn.setCellValueFactory(new PropertyValueFactory<>("NA"));     
+        sexColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));     
         criminalTable.setItems(list);
     }
 
     @FXML
-    private void backButtonPress(ActionEvent event) throws IOException {
+    public void backButtonPress(ActionEvent event) throws IOException {
         changeScene(event, "/view/LoggedInView.fxml");
     }
     

@@ -157,10 +157,12 @@ public class AddCriminalController {
         a.setAlertType(AlertType.CONFIRMATION);
         a.setContentText("You have successfully added a criminal!");
         a.show();
-        Criminal c = new Criminal(firstName, lastName, sex, dateOfBirth, address, "type", "date", "punishment");
+        Criminal c = new Criminal(firstName, lastName, dateOfBirth, 
+                placeOfBirth, address, sex, height, weight, race,
+                ethnicity, eyeColor, hairColor);
         StoreAndBackUpData.getCriminals().put(c.getId(), c);
         addButton.setVisible(false);
-        
+         
         System.out.println(c.toString());
     }
     
