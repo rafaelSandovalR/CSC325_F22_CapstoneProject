@@ -25,12 +25,17 @@
             </Label>
             <HBox alignment="TOP_CENTER" prefWidth="200.0">
                <children>
-                  <Button alignment="TOP_CENTER" mnemonicParsing="false" text="Edit">
+                  <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#goToCriminalEditView" text="Edit">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Details/History">
+                  <Button mnemonicParsing="false" onAction="#goToCriminalDetailView" text="Detailed View">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#goToCriminalHistoryView" text="History">
                      <HBox.margin>
                         <Insets left="25.0" />
                      </HBox.margin>

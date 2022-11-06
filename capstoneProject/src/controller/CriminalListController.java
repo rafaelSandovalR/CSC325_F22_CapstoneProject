@@ -27,8 +27,6 @@ import model.Uniteable;
 public class CriminalListController implements Initializable {
 
     @FXML
-    private Button backBtn;
-    @FXML
     private TableView<Criminal> criminalTable;
     
     @FXML
@@ -74,6 +72,28 @@ public class CriminalListController implements Initializable {
     public void backButtonPress(ActionEvent event) throws IOException {
         changeScene(event, "/view/LoggedInView.fxml");
     }
+    
+    @FXML
+    public void goToCriminalEditView(ActionEvent event) throws IOException {
+        changeScene(event, "/view/CriminalEditView.fxml");
+    }
+      
+    @FXML
+    public void goToCriminalDetailView(ActionEvent event) throws IOException {
+            
+        criminal = (Criminal) criminalTable.getSelectionModel().getSelectedItem();
+        if (criminalTable.getSelectionModel().getSelectedItem() == null) {
+            //alertLabel.setVisible(true);
+        } else {
+            changeScene(event, "/view/CriminalDetailView.fxml");
+        }
+    }
+    
+    @FXML
+    public void goToCriminalHistoryView(ActionEvent event) throws IOException {
+        changeScene(event, "/view/CriminalHistoryView.fxml");
+    }
+    
     
     public void changeScene(ActionEvent event, String str) throws IOException {
         FXMLLoader loader = new FXMLLoader();
