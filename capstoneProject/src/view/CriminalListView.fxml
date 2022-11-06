@@ -6,10 +6,11 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CriminalHistoryController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CriminalListController">
  <children>
       <VBox prefHeight="650.0" prefWidth="650.0">
          <children>
@@ -22,19 +23,37 @@
                   <Insets top="20.0" />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" text="Edit">
+            <HBox alignment="TOP_CENTER" prefWidth="200.0">
+               <children>
+                  <Button alignment="TOP_CENTER" mnemonicParsing="false" text="Edit">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="Details/History">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
                <VBox.margin>
-                  <Insets bottom="20.0" left="300.0" top="20.0" />
+                  <Insets bottom="25.0" top="25.0" />
                </VBox.margin>
-            </Button>
-            <TableView fx:id="criminalTable">
+            </HBox>
+            <TableView fx:id="criminalTable" prefWidth="500.0">
               <columns>
                 <TableColumn fx:id="idColumn" prefWidth="100.0" text="ID" />
                 <TableColumn fx:id="fnameColumn" prefWidth="125.0" text="First Name" />
                   <TableColumn fx:id="lnameColumn" prefWidth="125.0" text="Last Name" />
                   <TableColumn fx:id="sexColumn" prefWidth="75.0" text="Sex" />
-                  <TableColumn fx:id="ageColumn" prefWidth="75.0" text="Age" />
+                  <TableColumn fx:id="dobColumn" prefWidth="75.0" text="DOB" />
               </columns>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
          </children>
       </VBox>

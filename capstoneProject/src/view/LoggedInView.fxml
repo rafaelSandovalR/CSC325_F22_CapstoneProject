@@ -15,7 +15,7 @@
             <MenuButton fx:id="fileBtn" layoutX="586.0" layoutY="3.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="59.0" text="File" textFill="WHITE">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#viewComplaintHistoryMethod" text="View Complaint History" />
-                <MenuItem mnemonicParsing="false" onAction="#viewCriminalHistoryMethod" text="View Criminal History" />
+                <MenuItem mnemonicParsing="false" onAction="#viewCriminalListMethod" text="View Criminal List" />
                   <MenuItem mnemonicParsing="false" onAction="#logOutMethod" text="LogOut" />
               </items>
             </MenuButton>

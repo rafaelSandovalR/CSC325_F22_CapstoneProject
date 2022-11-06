@@ -24,7 +24,7 @@ import model.StoreAndBackUpData;
 import model.Uniteable;
 
 
-public class CriminalHistoryController implements Initializable {
+public class CriminalListController implements Initializable {
 
     @FXML
     private Button backBtn;
@@ -41,16 +41,11 @@ public class CriminalHistoryController implements Initializable {
     private TableColumn<Criminal, String> lnameColumn;
     
     @FXML
-    private TableColumn<Criminal, String> ageColumn;
+    private TableColumn<Criminal, String> dobColumn;
     
     @FXML
     private TableColumn<Criminal, String> sexColumn;
     
-    @FXML
-    private TableColumn<Criminal, String> raceColumn;
-    
-    @FXML
-    private TableColumn<Criminal, String> hairColumn;
     
     private ObservableList<Criminal> list = FXCollections.observableArrayList();
     private TreeMap<String, Criminal> criminals = StoreAndBackUpData.getCriminals();
@@ -71,7 +66,7 @@ public class CriminalHistoryController implements Initializable {
         fnameColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getfName()));
         lnameColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getlName()));
         sexColumn.setCellValueFactory(data-> new SimpleStringProperty(data.getValue().getSex()));   
-        ageColumn.setCellValueFactory(data-> new SimpleStringProperty(data.getValue().getDate_of_birth()));
+        dobColumn.setCellValueFactory(data-> new SimpleStringProperty(data.getValue().getDate_of_birth()));
         criminalTable.setItems(list);
     }
 
