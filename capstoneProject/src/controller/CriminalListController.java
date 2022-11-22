@@ -1,5 +1,6 @@
 package controller;
 
+import app.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -70,12 +71,12 @@ public class CriminalListController implements Initializable {
 
     @FXML
     public void backButtonPress(ActionEvent event) throws IOException {
-        changeScene(event, "/view/LoggedInView.fxml");
+        Main.setRoot("/view/LoggedInView.fxml");
     }
     
     @FXML
     public void goToCriminalEditView(ActionEvent event) throws IOException {
-        changeScene(event, "/view/CriminalEditView.fxml");
+        Main.setRoot("/view/CriminalEditView.fxml");
     }
       
     @FXML
@@ -85,26 +86,13 @@ public class CriminalListController implements Initializable {
         if (criminalTable.getSelectionModel().getSelectedItem() == null) {
             //alertLabel.setVisible(true);
         } else {
-            changeScene(event, "/view/CriminalDetailView.fxml");
+            Main.setRoot("/view/CriminalDetailView.fxml");
         }
     }
     
     @FXML
     public void goToCriminalHistoryView(ActionEvent event) throws IOException {
-        changeScene(event, "/view/CriminalHistoryView.fxml");
-    }
-    
-    
-    public void changeScene(ActionEvent event, String str) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(str));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 700, 700);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setWidth(700);
-        window.setHeight(700);
-        window.setScene(scene);
-        window.show();
+        Main.setRoot("/view/CriminalHistoryView.fxml");
     }
     
 }

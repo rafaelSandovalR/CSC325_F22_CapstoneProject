@@ -1,30 +1,46 @@
-
 package app;
 
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import model.StoreAndBackUpData;
 
-public class Main extends Application{
+public class Main extends Application {
     
-    public static void main(String[] args) {
-		launch(args);
-                
-	}
+    public static Scene scene;
+    public static Window window;
 
-	@Override
-	public void start(Stage arg0) throws Exception {
-            StoreAndBackUpData dt = new StoreAndBackUpData();
-            
-		Parent root = FXMLLoader.load(getClass().getResource("/view/HomePageView.fxml"));
-		Scene scene = new Scene(root, 650, 645);
-		Stage primaryStage = new Stage();
-		primaryStage.setWidth(650);
-		primaryStage.setHeight(645);
-		primaryStage.setScene(scene);
-		primaryStage.show();
-	}
+    public static void main(String[] args) {
+        launch(args);
+
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        StoreAndBackUpData dt = new StoreAndBackUpData();
+
+        scene = new Scene(loadFXML("/view/HomePageView.fxml"));
+        
+
+        primaryStage.setScene(scene);
+        primaryStage.setWidth(650);
+        primaryStage.setHeight(645);
+        primaryStage.show();
+    }
+    
+    public static void setRoot(String fxml)throws IOException{
+        scene.setRoot(loadFXML(fxml));
+        window = scene.getWindow();
+        window.sizeToScene();
+
+    }
+
+    public static Parent loadFXML(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml));
+        return fxmlLoader.load();
+    }
 }

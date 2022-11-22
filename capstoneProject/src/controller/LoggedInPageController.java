@@ -1,5 +1,6 @@
 package controller;
 
+import app.Main;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,39 +28,27 @@ public class LoggedInPageController {
 
     @FXML
     void addCriminal(ActionEvent event) throws IOException {
-        changeScene(event, "/view/AddCriminalView.fxml");
+        Main.setRoot("/view/AddCriminalView.fxml");
     }
 
     @FXML
     void fileComplaint(ActionEvent event) throws IOException {
-        changeScene(event, "/view/FileAComplaintView.fxml");
+        Main.setRoot("/view/FileAComplaintView.fxml");
     }
 
     @FXML
     void logOutMethod(ActionEvent event) throws IOException {
-        changeScene(event, "/view/HomePageView.fxml");
+        Main.setRoot("/view/HomePageView.fxml");
     }
 
     @FXML
     void viewComplaintHistoryMethod(ActionEvent event) throws IOException {
-        changeScene(event, "/view/ComplaintsHistoryView.fxml");
+        Main.setRoot("/view/ComplaintsHistoryView.fxml");
     }
 
     @FXML
     void viewCriminalListMethod(ActionEvent event) throws IOException {
-        changeScene(event, "/view/CriminalListView.fxml");
-    }
-
-    public void changeScene(ActionEvent event, String str) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(str));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 700, 700);
-        Stage window = (Stage) pane.getScene().getWindow();
-        window.setWidth(700);
-        window.setHeight(700);
-        window.setScene(scene);
-        window.show();
+        Main.setRoot("/view/CriminalListView.fxml");
     }
 
 }
