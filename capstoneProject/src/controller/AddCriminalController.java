@@ -1,5 +1,6 @@
 package controller;
 
+import app.Main;
 import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -156,15 +157,8 @@ public class AddCriminalController {
     
     @FXML
     void backToLoggedIn(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/LoggedInView.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 700, 700);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setWidth(700);
-        window.setHeight(700);
-        window.setScene(scene);
-        window.show();
+        Main.setRoot("/view/LoggedInView.fxml");
+
     }
 
 }

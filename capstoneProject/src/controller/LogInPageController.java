@@ -1,5 +1,6 @@
 package controller;
 
+import app.Main;
 import java.io.IOException;
 import java.util.TreeMap;
 import javafx.event.ActionEvent;
@@ -40,7 +41,7 @@ public class LogInPageController {
 
     @FXML
     void goBackToHomePage(ActionEvent event) throws IOException {
-        changeScene(event, "/view/HomePageView.fxml");
+        Main.setRoot("/view/HomePageView.fxml");
     }
 
     @FXML
@@ -53,7 +54,7 @@ public class LogInPageController {
             if (!officerAccounts.containsKey(badgeN)) {
                 badgeNLabel.setText("Badge number not found");
             } else {
-                changeScene(event, "/view/LoggedInView.fxml");
+                Main.setRoot("/view/LoggedInView.fxml");
             }
 
         }
@@ -61,18 +62,7 @@ public class LogInPageController {
 
     @FXML
     void signUpMethod(ActionEvent event) throws IOException {
-        changeScene(event, "/view/SignUpView.fxml");
+        Main.setRoot("/view/SignUpView.fxml");
     }
 
-    public void changeScene(ActionEvent event, String str) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(str));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 700, 700);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setWidth(700);
-        window.setHeight(700);
-        window.setScene(scene);
-        window.show();
-    }
 }

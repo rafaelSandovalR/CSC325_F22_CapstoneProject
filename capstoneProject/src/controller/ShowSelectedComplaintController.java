@@ -1,5 +1,6 @@
 package controller;
 
+import app.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -74,15 +75,8 @@ public class ShowSelectedComplaintController implements Initializable {
 
     @FXML
     void backToComplaintHistory(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/ComplaintsHistoryView.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 700, 700);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setWidth(700);
-        window.setHeight(700);
-        window.setScene(scene);
-        window.show();
+        Main.setRoot("/view/ComplaintsHistoryView.fxml");
+
     }
 
     @Override

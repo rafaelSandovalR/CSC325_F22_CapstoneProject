@@ -1,5 +1,6 @@
 package controller;
 
+import app.Main;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -43,26 +44,15 @@ public class HomePageController implements Initializable {
 
     @FXML
     void fileComplainMethod(ActionEvent event) throws IOException {
-        changeScene(event, "/view/FileAComplaintView.fxml");
+        Main.setRoot("/view/FileAComplaintView.fxml");
     }
 
     @FXML
     void logInMethod(ActionEvent event) throws IOException {
-        changeScene(event, "/view/LogInView.fxml");
+        Main.setRoot("/view/LogInView.fxml");
 
     }
 
-    public void changeScene(ActionEvent event, String str) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(str));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 650, 645);
-        Stage window = (Stage) pane.getScene().getWindow();
-        window.setWidth(650);
-        window.setHeight(645);
-        window.setScene(scene);
-        window.show();
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

@@ -45,7 +45,7 @@
                   <Insets bottom="25.0" top="25.0" />
                </VBox.margin>
             </HBox>
-            <TableView fx:id="criminalTable" prefWidth="500.0">
+            <TableView fx:id="criminalTable" prefWidth="650.0">
               <columns>
                 <TableColumn fx:id="idColumn" prefWidth="100.0" text="ID" />
                 <TableColumn fx:id="fnameColumn" prefWidth="125.0" text="First Name" />
