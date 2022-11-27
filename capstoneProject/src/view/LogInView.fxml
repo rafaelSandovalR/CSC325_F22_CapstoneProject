@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -12,6 +13,7 @@
    <children>
       <Pane layoutX="28.0" layoutY="193.0" prefHeight="645.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <ImageView fx:id="imageview" fitHeight="645.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true" />
             <TextField fx:id="badgeNumberField" layoutX="206.0" layoutY="186.0" prefHeight="34.0" prefWidth="244.0" promptText="Badge Number">
                <font>
                   <Font name="System Bold" size="15.0" />

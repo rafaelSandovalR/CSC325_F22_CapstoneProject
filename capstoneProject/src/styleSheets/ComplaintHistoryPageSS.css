@@ -3,6 +3,12 @@
     -fx-background-color: white;
 }
 
+#imageview{
+    -fx-opacity: 0.3;
+    -fx-width:650px;
+    -fx-height:645px;
+}
+
 #showComplaintBtn{
     -fx-background-color: darkslateblue;
     -fx-text-fill: white;

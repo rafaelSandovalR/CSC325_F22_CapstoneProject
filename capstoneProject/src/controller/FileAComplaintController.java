@@ -2,10 +2,13 @@ package controller;
 
 import app.Main;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.TreeMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,12 +18,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.Complaint;
 import model.StoreAndBackUpData;
 import model.Uniteable;
 
-public class FileAComplaintController {
+public class FileAComplaintController implements Initializable {
 
     private TreeMap<String, Complaint> complaints = StoreAndBackUpData.getComplaints();
     private String name;
@@ -125,6 +130,19 @@ public class FileAComplaintController {
 
     @FXML
     void backToLoggedIn(ActionEvent event) throws IOException {
-        Main.setRoot("/view/LoggedInView.fxml");
+        if (LoggedInPageController.loggedIn.compareTo("true") == 0) {
+           Main.setRoot("/view/LoggedInView.fxml");
+        } else {
+            Main.setRoot("/view/HomePageView.fxml");
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+//        Image image = new Image("/controller/image.png", 645, 650, false, false);
+//        imageview.setImage(image);
+//        imageview.setFitHeight(645);
+//        imageview.setFitWidth(650);
+
     }
 }
