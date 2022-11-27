@@ -18,4 +18,7 @@ module project {
     requires com.fasterxml.jackson.databind;
     requires org.json;
     requires org.xerial.sqlitejdbc;
+    requires javafx.swt;
+    requires javafx.media;
+    requires javafx.web;
 }

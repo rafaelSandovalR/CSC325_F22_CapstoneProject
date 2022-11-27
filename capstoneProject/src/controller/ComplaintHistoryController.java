@@ -18,6 +18,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.Complaint;
 import model.Officer;
@@ -28,8 +30,10 @@ public class ComplaintHistoryController implements Initializable {
 
     private ObservableList<Complaint> list = FXCollections.observableArrayList();
     private TreeMap<String, Complaint> complaints = StoreAndBackUpData.getComplaints();
-    public static Complaint complaint ;
+    public static Complaint complaint;
 
+    @FXML
+    private ImageView imageview;
     @FXML
     private TableColumn<Complaint, String> complaintColumn;
 
@@ -46,7 +50,7 @@ public class ComplaintHistoryController implements Initializable {
     private TableColumn<Complaint, String> lNameColumn;
 
     @FXML
-    private  TableView<Complaint> tableView;
+    private TableView<Complaint> tableView;
 
     @FXML
     private TableColumn<Integer, Integer> counter;
@@ -54,9 +58,10 @@ public class ComplaintHistoryController implements Initializable {
     private Label alertLabel;
     @FXML
     private Button showComplaintBtn;
-    
+
     @FXML
     private Button backBtn;
+
     @FXML
     void backToLoggedInPage(ActionEvent event) throws IOException {
         changeScene(event, "/view/LoggedInView.fxml");
@@ -69,7 +74,7 @@ public class ComplaintHistoryController implements Initializable {
         creationDateColumn.setCellValueFactory(new PropertyValueFactory<>("creationDate"));
         counter.setId("1");
         tableView.setItems(list);
-       
+
     }
 
     @FXML
@@ -86,10 +91,10 @@ public class ComplaintHistoryController implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(str));
         Parent root = loader.load();
-        Scene scene = new Scene(root, 700, 700);
+        Scene scene = new Scene(root, 645, 650);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setWidth(700);
-        window.setHeight(700);
+        window.setWidth(645);
+        window.setHeight(650);
         window.setScene(scene);
         window.show();
     }
@@ -100,5 +105,9 @@ public class ComplaintHistoryController implements Initializable {
         list.addAll(complaints.values());
         alertLabel.setVisible(false);
         showComplaintList();
+        Image image = new Image("/controller/image.png", 645, 650, false, false);
+        imageview.setImage(image);
+        imageview.setFitHeight(645);
+        imageview.setFitWidth(650);
     }
 }

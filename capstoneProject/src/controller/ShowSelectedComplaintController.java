@@ -77,10 +77,10 @@ public class ShowSelectedComplaintController implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/view/ComplaintsHistoryView.fxml"));
         Parent root = loader.load();
-        Scene scene = new Scene(root, 700, 700);
+        Scene scene = new Scene(root, 645, 650);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setWidth(700);
-        window.setHeight(700);
+        window.setWidth(645);
+        window.setHeight(650);
         window.setScene(scene);
         window.show();
     }

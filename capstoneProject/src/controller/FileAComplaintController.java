@@ -1,10 +1,13 @@
 package controller;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.TreeMap;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,12 +17,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.Complaint;
 import model.StoreAndBackUpData;
 import model.Uniteable;
 
-public class FileAComplaintController {
+public class FileAComplaintController implements Initializable {
 
     private TreeMap<String, Complaint> complaints = StoreAndBackUpData.getComplaints();
     private String name;
@@ -124,14 +129,34 @@ public class FileAComplaintController {
 
     @FXML
     void backToLoggedIn(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/LoggedInView.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 700, 700);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setWidth(700);
-        window.setHeight(700);
-        window.setScene(scene);
-        window.show();
+        if (LoggedInPageController.loggedIn.compareTo("true") == 0) {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/view/LoggedInView.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 650, 645);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setWidth(645);
+            window.setHeight(650);
+            window.setScene(scene);
+            window.show();
+        } else {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/view/HomePageView.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root, 650, 645);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setWidth(645);
+            window.setHeight(650);
+            window.setScene(scene);
+            window.show();
+        }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+//        Image image = new Image("/controller/image.png", 645, 650, false, false);
+//        imageview.setImage(image);
+//        imageview.setFitHeight(645);
+//        imageview.setFitWidth(650);
     }
 }

@@ -40,6 +40,8 @@ public class HomePageController implements Initializable {
     void exit(ActionEvent event) {
 
     }
+    
+    
 
     @FXML
     void fileComplainMethod(ActionEvent event) throws IOException {
