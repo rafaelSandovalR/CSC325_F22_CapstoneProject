@@ -1,5 +1,6 @@
 package controller;
 
+import app.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -64,7 +65,7 @@ public class ComplaintHistoryController implements Initializable {
 
     @FXML
     void backToLoggedInPage(ActionEvent event) throws IOException {
-        changeScene(event, "/view/LoggedInView.fxml");
+       Main.setRoot("/view/LoggedInView.fxml");
     }
 
     public void showComplaintList() {
@@ -83,22 +84,10 @@ public class ComplaintHistoryController implements Initializable {
         if (tableView.getSelectionModel().getSelectedItem() == null) {
             alertLabel.setVisible(true);
         } else {
-            changeScene(event, "/view/ShowSelectedComplaintView.fxml");
+            Main.setRoot("/view/ShowSelectedComplaintView.fxml");
         }
     }
-
-    public void changeScene(ActionEvent event, String str) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(str));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 645, 650);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setWidth(645);
-        window.setHeight(650);
-        window.setScene(scene);
-        window.show();
-    }
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 //        list.add(complaints.entrySet());

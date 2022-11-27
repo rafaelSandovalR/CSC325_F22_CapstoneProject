@@ -1,5 +1,6 @@
 package controller;
 
+import app.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -153,19 +154,7 @@ public class SignUpController implements Initializable {
 
     @FXML
     void goBackToHomePage(ActionEvent event) throws IOException {
-        changeScene(event, "/view/HomePageView.fxml");
-    }
-
-    public void changeScene(ActionEvent event, String str) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(str));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 645, 650);
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setWidth(645);
-        window.setHeight(650);
-        window.setScene(scene);
-        window.show();
+        Main.setRoot("/view/HomePageView.fxml");
     }
 
     @Override

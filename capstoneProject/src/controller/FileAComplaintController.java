@@ -1,5 +1,6 @@
 package controller;
 
+import app.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -130,25 +131,9 @@ public class FileAComplaintController implements Initializable {
     @FXML
     void backToLoggedIn(ActionEvent event) throws IOException {
         if (LoggedInPageController.loggedIn.compareTo("true") == 0) {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/view/LoggedInView.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root, 650, 645);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setWidth(645);
-            window.setHeight(650);
-            window.setScene(scene);
-            window.show();
+           Main.setRoot("/view/LoggedInView.fxml");
         } else {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/view/HomePageView.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root, 650, 645);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setWidth(645);
-            window.setHeight(650);
-            window.setScene(scene);
-            window.show();
+            Main.setRoot("/view/HomePageView.fxml");
         }
     }
 
@@ -158,5 +143,6 @@ public class FileAComplaintController implements Initializable {
 //        imageview.setImage(image);
 //        imageview.setFitHeight(645);
 //        imageview.setFitWidth(650);
+
     }
 }

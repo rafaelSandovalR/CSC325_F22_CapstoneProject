@@ -1,5 +1,6 @@
 package controller;
 
+import app.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -36,43 +37,37 @@ public class LoggedInPageController implements Initializable{
     @FXML
     void addCriminal(ActionEvent event) throws IOException {
         loggedIn = "true";
-        changeScene(event, "/view/AddCriminal");
+        Main.setRoot("/view/AddCriminalView.fxml");
     }
 
     @FXML
     void fileComplaint(ActionEvent event) throws IOException {
         loggedIn = "true";
-        changeScene(event, "/view/FileAComplaintView.fxml");
+        Main.setRoot("/view/FileAComplaintView.fxml");
     }
 
     @FXML
     void logOutMethod(ActionEvent event) throws IOException {
         loggedIn = "false";
-        changeScene(event, "/view/HomePageView.fxml");
+        Main.setRoot("/view/HomePageView.fxml");
     }
 
     @FXML
     void viewComplaintHistoryMethod(ActionEvent event) throws IOException {
         loggedIn = "true";
-        changeScene(event, "/view/ComplaintsHistoryView.fxml");
+         Main.setRoot("/view/ComplaintsHistoryView.fxml");
     }
 
     @FXML
     void viewCriminalHistoryMethod(ActionEvent event) throws IOException {
         loggedIn = "true";
-        changeScene(event, "view/CriminalHistoryView.fxml");
+        Main.setRoot("/view/ComplaintsHistoryView.fxml");
     }
 
-    public void changeScene(ActionEvent event, String str) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(str));
-        Parent root = loader.load();
-        Scene scene = new Scene(root, 645, 650);
-        Stage window = (Stage) pane.getScene().getWindow();
-        window.setWidth(645);
-        window.setHeight(650);
-        window.setScene(scene);
-        window.show();
+    @FXML
+    void viewCriminalListMethod(ActionEvent event) throws IOException {
+     loggedIn = "true";
+        Main.setRoot("/view/CriminalListView.fxml");
     }
 
     @Override
