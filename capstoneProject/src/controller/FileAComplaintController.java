@@ -93,42 +93,39 @@ public class FileAComplaintController implements Initializable {
         if (name.isBlank()) {
             System.err.println("called");
         } else {
-            if (name.isBlank()) {
-                String[] n = name.split(" ");
-                fName = n[0];
-                lName = n[1];
+
+            String[] n = name.split(" ");
+            fName = n[0];
+            lName = n[1];
+
+            if (address.isBlank()) {
+
+            } else if (date.isBlank()) {
+
+            } else if (telephone.isBlank()) {
+
+            } else if (signature.isBlank()) {
+
+            } else if (signatureDate.isBlank()) {
+
+            } else if (location.isBlank()) {
+
+            } else if (complaintDescription.isBlank()) {
+
             } else {
-                fName = name;
-                lName = " ";
-                if (address.isBlank()) {
-
-                } else if (date.isBlank()) {
-
-                } else if (telephone.isBlank()) {
-
-                } else if (signature.isBlank()) {
-
-                } else if (signatureDate.isBlank()) {
-
-                } else if (location.isBlank()) {
-
-                } else if (complaintDescription.isBlank()) {
-
-                } else {
-                    Alert a = new Alert(AlertType.NONE);
-                    a.setAlertType(AlertType.CONFIRMATION);
-                    a.setContentText("You have successfully submitted the complaint form!");
-                    a.show();
-                    Complaint c = new Complaint(fName, lName, address, telephone, date, time, location, additionalEvidence, complaintDescription);
-                    StoreAndBackUpData.getComplaints().put(c.getComplaint_id(), c);
-                    submitBrn.setVisible(false);
-                }
-
+                Alert a = new Alert(AlertType.NONE);
+                a.setAlertType(AlertType.CONFIRMATION);
+                a.setContentText("You have successfully submitted the complaint form!");
+                a.show();
+                Complaint c = new Complaint(fName, lName, address, telephone, date, time, location, additionalEvidence, complaintDescription);
+                StoreAndBackUpData.getComplaints().put(c.getComplaint_id(), c);
+                submitBrn.setVisible(false);
             }
+
         }
     }
-
-    @FXML
+    
+@FXML
     void backToLoggedIn(ActionEvent event) throws IOException {
         if (LoggedInPageController.loggedIn.compareTo("true") == 0) {
            Main.setRoot("/view/LoggedInView.fxml");
@@ -138,7 +135,7 @@ public class FileAComplaintController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+public void initialize(URL url, ResourceBundle rb) {
 //        Image image = new Image("/controller/image.png", 645, 650, false, false);
 //        imageview.setImage(image);
 //        imageview.setFitHeight(645);

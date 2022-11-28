@@ -9,11 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -21,11 +17,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 import model.Complaint;
-import model.Officer;
 import model.StoreAndBackUpData;
-import model.Uniteable;
 
 public class ComplaintHistoryController implements Initializable {
 
@@ -33,6 +26,8 @@ public class ComplaintHistoryController implements Initializable {
     private TreeMap<String, Complaint> complaints = StoreAndBackUpData.getComplaints();
     public static Complaint complaint;
 
+    @FXML
+    private Button deleteBtn;
     @FXML
     private ImageView imageview;
     @FXML
@@ -64,11 +59,29 @@ public class ComplaintHistoryController implements Initializable {
     private Button backBtn;
 
     @FXML
-    void backToLoggedInPage(ActionEvent event) throws IOException {
-       Main.setRoot("/view/LoggedInView.fxml");
+    void deleteComplaint(ActionEvent event) {
+        Complaint c = (Complaint) tableView.getSelectionModel().getSelectedItem();
+        if (c == null) {
+            alertLabel.setVisible(true);
+        } else {
+            alertLabel.setVisible(true);
+            if(complaints.values() == null){
+                
+            }else{
+            complaints.remove(c.getComplaint_id());
+            }
+            ObservableList<Complaint> list2 = FXCollections.observableArrayList();
+             list2.addAll(complaints.values());
+            showComplaintList(list2);
+        }
     }
 
-    public void showComplaintList() {
+    @FXML
+    void backToLoggedInPage(ActionEvent event) throws IOException {
+        Main.setRoot("/view/LoggedInView.fxml");
+    }
+
+    public void showComplaintList(ObservableList<Complaint> list) {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("complaint_id"));
         fNameColumn.setCellValueFactory(new PropertyValueFactory<>("complainant_fName"));
         lNameColumn.setCellValueFactory(new PropertyValueFactory<>("complainant_lName"));
@@ -87,13 +100,17 @@ public class ComplaintHistoryController implements Initializable {
             Main.setRoot("/view/ShowSelectedComplaintView.fxml");
         }
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 //        list.add(complaints.entrySet());
+        if(complaints.values() == null){
+            
+        }else{
         list.addAll(complaints.values());
         alertLabel.setVisible(false);
-        showComplaintList();
+        showComplaintList(list);
+        }
         Image image = new Image("/controller/image.png", 645, 650, false, false);
         imageview.setImage(image);
         imageview.setFitHeight(645);
