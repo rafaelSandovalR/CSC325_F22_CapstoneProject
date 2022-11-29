@@ -1,6 +1,6 @@
 package controller;
 
-import app.Main;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import main.finalproject.App;
 import model.Complaint;
 import model.StoreAndBackUpData;
 
@@ -64,7 +65,7 @@ public class ComplaintHistoryController implements Initializable {
         if (c == null) {
             alertLabel.setVisible(true);
         } else {
-            alertLabel.setVisible(true);
+            alertLabel.setVisible(false);
             if(complaints.values() == null){
                 
             }else{
@@ -78,7 +79,7 @@ public class ComplaintHistoryController implements Initializable {
 
     @FXML
     void backToLoggedInPage(ActionEvent event) throws IOException {
-        Main.setRoot("/view/LoggedInView.fxml");
+        App.setRoot("LoggedInView.fxml");
     }
 
     public void showComplaintList(ObservableList<Complaint> list) {
@@ -97,7 +98,7 @@ public class ComplaintHistoryController implements Initializable {
         if (tableView.getSelectionModel().getSelectedItem() == null) {
             alertLabel.setVisible(true);
         } else {
-            Main.setRoot("/view/ShowSelectedComplaintView.fxml");
+            App.setRoot("ShowSelectedComplaintView.fxml");
         }
     }
 
@@ -111,7 +112,7 @@ public class ComplaintHistoryController implements Initializable {
         alertLabel.setVisible(false);
         showComplaintList(list);
         }
-        Image image = new Image("/controller/image.png", 645, 650, false, false);
+        Image image = new Image("file:image.png", 645, 650, false, false);
         imageview.setImage(image);
         imageview.setFitHeight(645);
         imageview.setFitWidth(650);

@@ -1,4 +1,3 @@
-
 .root{
     -fx-background-color: white;
 }
@@ -7,22 +6,6 @@
     -fx-opacity: 0.3;
     -fx-width:650px;
     -fx-height:645px;
-}
-
-#showComplaintBtn{
-    -fx-background-color: darkslateblue;
-    -fx-text-fill: white;
-    -fx-effect: dropshadow(three-pass-box, grey, 5, 0, 0, 8);
-}
-
-
-#showComplaintBtn:hover {
-    -fx-background-color: lightslategray;
-}
-
-#showComplaintBtn:pressed {
-    -fx-scale-y: 0.9;
-    -fx-scale-x: 0.9;
 }
 
 #backBtn{
@@ -41,18 +24,50 @@
     -fx-scale-x: 0.9;
 }
 
-#deleteBtn{
+#editBtn{
     -fx-background-color: darkslateblue;
     -fx-text-fill: white;
     -fx-effect: dropshadow(three-pass-box, grey, 5, 0, 0, 8);
 }
 
 
-#deleteBtn:hover {
+#editBtn:hover {
     -fx-background-color: lightslategray;
 }
 
-#deleteBtn:pressed {
+#editBtn:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
+
+#historyBtn{
+    -fx-background-color: darkslateblue;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, grey, 5, 0, 0, 8);
+}
+
+
+#historyBtn:hover {
+    -fx-background-color: lightslategray;
+}
+
+#historyBtn:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
+
+#detailViewBtn{
+    -fx-background-color: darkslateblue;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, grey, 5, 0, 0, 8);
+}
+
+
+#detailViewBtn:hover {
+    -fx-background-color: lightslategray;
+}
+
+#detailViewBtn:pressed {
     -fx-scale-y: 0.9;
     -fx-scale-x: 0.9;
 }

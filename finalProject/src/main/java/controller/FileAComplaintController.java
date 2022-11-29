@@ -1,6 +1,6 @@
 package controller;
 
-import app.Main;
+//import app.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import main.finalproject.App;
 import model.Complaint;
 import model.StoreAndBackUpData;
 import model.Uniteable;
@@ -128,9 +129,9 @@ public class FileAComplaintController implements Initializable {
 @FXML
     void backToLoggedIn(ActionEvent event) throws IOException {
         if (LoggedInPageController.loggedIn.compareTo("true") == 0) {
-           Main.setRoot("/view/LoggedInView.fxml");
+          App.setRoot("LoggedInView.fxml");
         } else {
-            Main.setRoot("/view/HomePageView.fxml");
+            App.setRoot("HomePageView.fxml");
         }
     }
 

@@ -1,6 +1,5 @@
 package controller;
 
-import app.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,6 +21,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import main.finalproject.App;
 import model.Criminal;
 import model.StoreAndBackUpData;
 import model.Uniteable;
@@ -68,7 +68,7 @@ public class CriminalListController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         list.addAll(criminals.values());
         showCriminalList();
-        Image image = new Image("/controller/image.png", 645, 650, false, false);
+        Image image = new Image("file:image.png", 645, 650, false, false);
         imageview.setImage(image);
         imageview.setFitHeight(645);
         imageview.setFitWidth(650);
@@ -86,12 +86,12 @@ public class CriminalListController implements Initializable {
 
     @FXML
     public void backButtonPress(ActionEvent event) throws IOException {
-        Main.setRoot("/view/LoggedInView.fxml");
+       App.setRoot("LoggedInView.fxml");
     }
 
     @FXML
     public void goToCriminalEditView(ActionEvent event) throws IOException {
-        Main.setRoot("/view/CriminalEditView.fxml");
+        App.setRoot("CriminalEditView.fxml");
     }
 
     @FXML
@@ -101,13 +101,13 @@ public class CriminalListController implements Initializable {
         if (criminalTable.getSelectionModel().getSelectedItem() == null) {
             //alertLabel.setVisible(true);
         } else {
-            Main.setRoot("/view/CriminalDetailView.fxml");
+            App.setRoot("CriminalDetailView.fxml");
         }
     }
 
     @FXML
     public void goToCriminalHistoryView(ActionEvent event) throws IOException {
-        Main.setRoot("/view/CriminalHistoryView.fxml");
+        App.setRoot("CriminalHistoryView.fxml");
     }
 
 }

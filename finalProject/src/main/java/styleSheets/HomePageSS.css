@@ -1,58 +1,78 @@
-
 .root{
     -fx-background-color: white;
 }
 
-#imageview{
+#imageView{
     -fx-opacity: 0.3;
     -fx-width:650px;
     -fx-height:645px;
 }
 
-#showComplaintBtn{
+#logInBtn{
     -fx-background-color: darkslateblue;
     -fx-text-fill: white;
     -fx-effect: dropshadow(three-pass-box, grey, 5, 0, 0, 8);
 }
 
 
-#showComplaintBtn:hover {
+#logInBtn:hover {
     -fx-background-color: lightslategray;
 }
 
-#showComplaintBtn:pressed {
+#logInBtn:pressed {
     -fx-scale-y: 0.9;
     -fx-scale-x: 0.9;
 }
 
-#backBtn{
+#exitBtn{
     -fx-background-color: darkslateblue;
     -fx-text-fill: white;
     -fx-effect: dropshadow(three-pass-box, grey, 5, 0, 0, 8);
 }
 
-
-#backBtn:hover {
+#exitBtn:hover {
     -fx-background-color: lightslategray;
 }
 
-#backBtn:pressed {
+#exitBtn:pressed {
     -fx-scale-y: 0.9;
     -fx-scale-x: 0.9;
 }
 
-#deleteBtn{
+#exitBtn:hover {
+    -fx-background-color: lightslategray;
+}
+
+#exitBtn:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
+
+#complaintBtn{
     -fx-background-color: darkslateblue;
     -fx-text-fill: white;
     -fx-effect: dropshadow(three-pass-box, grey, 5, 0, 0, 8);
 }
 
-
-#deleteBtn:hover {
+#complaintBtn:hover {
     -fx-background-color: lightslategray;
 }
 
-#deleteBtn:pressed {
+#complaintBtn:pressed {
     -fx-scale-y: 0.9;
     -fx-scale-x: 0.9;
+}
+
+#hBox{
+    -fx-alignment: center ;
+}
+
+
+#pane{
+    /*-fx-background-image: url("image.png");*/
+    /*-fx-background-repeat:no-repeat;*/
+    /*-fx-background-size: cover;*/
+    /*-fx-background-position:right;*/
+    /*-fx-background-opacity: 0.5;*/
+    /*-fx-background-radius: 10;*/
 }
