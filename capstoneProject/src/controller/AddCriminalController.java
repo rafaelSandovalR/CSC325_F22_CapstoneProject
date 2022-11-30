@@ -160,5 +160,9 @@ public class AddCriminalController {
         Main.setRoot("/view/LoggedInView.fxml");
 
     }
+    
+    void testMethod(int n){
+        System.out.println("Testing");
+    }
 
 }
