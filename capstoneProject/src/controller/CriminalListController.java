@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.TreeMap;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -61,6 +62,11 @@ public class CriminalListController implements Initializable {
     private TreeMap<String, Criminal> criminals = StoreAndBackUpData.getCriminals();
     public static Criminal criminal;
 
+    @FXML
+    private Button detailedViewButton;
+    @FXML
+    private Button historyButton;
+
     /**
      * Initializes the controller class.
      */
@@ -68,6 +74,9 @@ public class CriminalListController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         list.addAll(criminals.values());
         showCriminalList();
+        detailedViewButton.disableProperty().bind(Bindings.isEmpty(criminalTable.getSelectionModel().getSelectedItems()));
+        historyButton.disableProperty().bind(Bindings.isEmpty(criminalTable.getSelectionModel().getSelectedItems()));
+
         Image image = new Image("/controller/image.png", 645, 650, false, false);
         imageview.setImage(image);
         imageview.setFitHeight(645);
@@ -88,6 +97,7 @@ public class CriminalListController implements Initializable {
     public void backButtonPress(ActionEvent event) throws IOException {
         Main.setRoot("/view/LoggedInView.fxml");
     }
+
 
     @FXML
     public void goToCriminalEditView(ActionEvent event) throws IOException {

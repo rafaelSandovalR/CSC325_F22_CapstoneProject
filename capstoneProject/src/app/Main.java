@@ -24,6 +24,7 @@ public class Main extends Application {
         StoreAndBackUpData dt = new StoreAndBackUpData();
 
         scene = new Scene(loadFXML("/view/HomePageView.fxml"));
+        window = scene.getWindow();
         
 
         primaryStage.setScene(scene);
@@ -36,7 +37,6 @@ public class Main extends Application {
         scene.setRoot(loadFXML(fxml));
         window = scene.getWindow();
         window.sizeToScene();
-
     }
 
     public static Parent loadFXML(String fxml) throws IOException {

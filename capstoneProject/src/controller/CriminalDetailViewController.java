@@ -9,8 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.control.TextField;
+
 import model.Criminal;
 
 public class CriminalDetailViewController implements Initializable {
@@ -22,7 +22,7 @@ public class CriminalDetailViewController implements Initializable {
     @FXML
     private Label idLabel;
     @FXML
-    private Label fnameLabel;
+    private Label fNameLabel;
     @FXML
     private Label lNameLabel;
     @FXML
@@ -48,6 +48,7 @@ public class CriminalDetailViewController implements Initializable {
 
     public static Criminal criminal;
 
+
     /**
      * Initializes the controller class.
      */
@@ -64,7 +65,7 @@ public class CriminalDetailViewController implements Initializable {
         criminal = CriminalListController.criminal;
 
         idLabel.setText(criminal.getId());
-        fnameLabel.setText(criminal.getfName());
+        fNameLabel.setText(criminal.getfName());
         lNameLabel.setText(criminal.getlName());
         dobLabel.setText(criminal.getDate_of_birth());
         pobLabel.setText(criminal.getPlace_of_birth());
@@ -79,7 +80,13 @@ public class CriminalDetailViewController implements Initializable {
     }
 
     @FXML
-    void back(ActionEvent event) throws IOException {
+
+    private void backButtonPress(ActionEvent event) throws IOException{
         Main.setRoot("/view/CriminalListView.fxml");
+    }
+
+    @FXML
+    private void editButtonPress(ActionEvent event) throws IOException{
+        Main.setRoot("/view/EditCriminal.fxml");
     }
 }
