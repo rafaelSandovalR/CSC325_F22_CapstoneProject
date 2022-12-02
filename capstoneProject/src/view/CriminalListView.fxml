@@ -25,17 +25,17 @@
             </Label>
             <HBox alignment="TOP_CENTER" prefWidth="200.0">
                <children>
-                  <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#goToCriminalEditView" text="Edit">
+                  <Label prefHeight="25.2" text="Select a criminal" textFill="#858484">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="detailedViewButton" disable="true" mnemonicParsing="false" onAction="#goToCriminalDetailView" text="Detailed View">
                      <HBox.margin>
-                        <Insets />
+                        <Insets left="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#goToCriminalDetailView" text="Detailed View">
-                     <HBox.margin>
-                        <Insets left="25.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#goToCriminalHistoryView" text="History">
+                  <Button fx:id="historyButton" disable="true" mnemonicParsing="false" onAction="#goToCriminalHistoryView" text="History">
                      <HBox.margin>
                         <Insets left="25.0" />
                      </HBox.margin>

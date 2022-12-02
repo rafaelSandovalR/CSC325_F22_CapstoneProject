@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -14,7 +15,7 @@
    <children>
       <VBox prefHeight="650.0" prefWidth="650.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="64.0" text="Back" />
+            <Button mnemonicParsing="false" onAction="#backButtonPress" prefHeight="32.0" prefWidth="64.0" text="Back" />
             <Label alignment="CENTER" prefWidth="650.0" text="Criminal Details">
                <font>
                   <Font name="System Bold" size="16.0" />
@@ -42,7 +43,7 @@
               </rowConstraints>
                <children>
                   <Label text="First Name:" GridPane.rowIndex="1" />
-                  <Label fx:id="fnameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="fNameLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label text="Last Name:" GridPane.rowIndex="2" />
                   <Label text="Date of Birth:" GridPane.rowIndex="3" />
                   <Label text="Place of Birth:" GridPane.rowIndex="4" />
@@ -72,6 +73,18 @@
                   <Insets left="100.0" top="25.0" />
                </VBox.margin>
             </GridPane>
+            <HBox alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#editButtonPress" prefHeight="30.0" text="Edit Details">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </HBox>
          </children>
       </VBox>
    </children>
