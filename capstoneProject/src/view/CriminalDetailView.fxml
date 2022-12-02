@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -11,8 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CriminalDetailViewController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="650.0" stylesheets="@../styleSheets/CriminalDetailPage.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CriminalDetailViewController">
    <children>
+      <ImageView fx:id="imageview" fitHeight="650.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true" />
       <VBox prefHeight="650.0" prefWidth="650.0">
          <children>
             <Button mnemonicParsing="false" onAction="#backButtonPress" prefHeight="32.0" prefWidth="64.0" text="Back" />

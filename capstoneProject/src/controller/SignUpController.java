@@ -15,6 +15,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.Officer;
@@ -27,6 +29,8 @@ public class SignUpController implements Initializable {
     private TreeMap<String, Officer> officerAccounts = StoreAndBackUpData.getOfficerAccounts();
     private int dCode = 4651;
 
+    @FXML
+    private ImageView imageview;
     @FXML
     private Label confirmLabel;
 
@@ -157,5 +161,9 @@ public class SignUpController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         submitBtn.setDisable(false);
         confirmLabel.setVisible(false);
+        Image image = new Image("/controller/image.png", 645, 650, false, false);
+        imageview.setImage(image);
+        imageview.setFitHeight(645);
+        imageview.setFitWidth(650);
     }
 }
