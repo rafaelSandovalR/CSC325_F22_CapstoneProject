@@ -71,7 +71,7 @@ public class CriminalDetailViewController implements Initializable {
 
     @FXML
     private void backButtonPress(ActionEvent event) throws IOException{
-        Main.setRoot("/view/LoggedInView.fxml");
+        Main.setRoot("/view/CriminalListView.fxml");
     }
 
     @FXML

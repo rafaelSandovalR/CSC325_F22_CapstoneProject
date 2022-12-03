@@ -7,10 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import model.Crime;
+import model.Criminal;
 import model.StoreAndBackUpData;
 
 public class Main extends Application {
-    
+
     public static Scene scene;
     public static Window window;
 
@@ -23,17 +25,33 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         StoreAndBackUpData dt = new StoreAndBackUpData();
 
-        scene = new Scene(loadFXML("/view/HomePageView.fxml"));
-        window = scene.getWindow();
+        //Test Criminal
+        Criminal c = new Criminal("Raf", "Sandoval", "04/08/1967", "Stony Brook",
+                "123 Applewood Rd, Smithtown, NY, 11787", "Male", "5' 7\"", "170",
+                "White", "Latino", "Brown", "Black");
+        Criminal c2 = new Criminal("Bruce", "Wayne", "01/23/1980", "Gotham",
+                "224 Main St, Gotham, NY, 11223", "Male", "6' 5\"", "210",
+                "White", "Non-Latino", "Brown", "Brown");
+        StoreAndBackUpData.getCriminals().put(c.getId(), c);
+        StoreAndBackUpData.getCriminals().put(c2.getId(), c2);
         
+        Crime x = new Crime(c, "Val", "Merc", "04/13/1994", "Female",
+            "123-456-7890", "777 Ocean Ave", "02/02/2022", "10:00pm",
+            "Ronkonkoma", "Stolen Car", "3 Years Prison");
+        
+        StoreAndBackUpData.getCrimes().put(x.getCrime_id(), x);
+
+        //Switch back to HomePageView.fxml
+        scene = new Scene(loadFXML("/view/LoggedInView.fxml"));
+        window = scene.getWindow();
 
         primaryStage.setScene(scene);
         primaryStage.setWidth(650);
         primaryStage.setHeight(645);
         primaryStage.show();
     }
-    
-    public static void setRoot(String fxml)throws IOException{
+
+    public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
         window = scene.getWindow();
         window.sizeToScene();

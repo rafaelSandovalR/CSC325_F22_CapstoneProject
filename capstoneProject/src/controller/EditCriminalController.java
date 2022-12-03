@@ -127,7 +127,7 @@ public class EditCriminalController implements Initializable {
 
     @FXML
     private void backButtonPress(ActionEvent event) throws IOException {
-        Main.setRoot("view/CriminalDetailViewController");
+        Main.setRoot("/view/CriminalDetailView.fxml");
     }
 
     @FXML

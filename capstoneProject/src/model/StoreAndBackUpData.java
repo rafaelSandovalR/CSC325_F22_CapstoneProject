@@ -7,11 +7,13 @@ public class StoreAndBackUpData {
     private static TreeMap<String, Officer> officerAccounts;
     private static TreeMap<String, Criminal> criminals;
     private static TreeMap<String, Complaint> complaintsHistory;
+    private static TreeMap<String, Crime> crimes;
 
     public StoreAndBackUpData() {
         officerAccounts = new TreeMap<>();
         criminals = new TreeMap<>();
         complaintsHistory = new TreeMap<>();
+        crimes = new TreeMap<>();
     }
 
     public void addComplaint(String id, Complaint complaint){
@@ -36,5 +38,13 @@ public class StoreAndBackUpData {
 
     public static TreeMap<String, Criminal> getCriminals() {
         return criminals;
+    }
+    
+    public void addCrime(String id, Crime crime){
+        crimes.put(id, crime);
+    }
+    
+    public static TreeMap<String, Crime> getCrimes(){
+        return crimes;
     }
 }

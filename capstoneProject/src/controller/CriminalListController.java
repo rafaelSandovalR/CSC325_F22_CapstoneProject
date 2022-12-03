@@ -82,9 +82,6 @@ public class CriminalListController implements Initializable {
         Main.setRoot("/view/LoggedInView.fxml");
     }
     
-    public void goToCriminalEditView(ActionEvent event) throws IOException {
-        Main.setRoot("/view/CriminalEditView.fxml");
-    }
       
     @FXML
     public void goToCriminalDetailView(ActionEvent event) throws IOException {
@@ -99,7 +96,12 @@ public class CriminalListController implements Initializable {
     
     @FXML
     public void goToCriminalHistoryView(ActionEvent event) throws IOException {
-        Main.setRoot("/view/CriminalHistoryView.fxml");
+        criminal = (Criminal) criminalTable.getSelectionModel().getSelectedItem();
+        if (criminalTable.getSelectionModel().getSelectedItem() == null) {
+            //alertLabel.setVisible(true);
+        } else {
+            Main.setRoot("/view/CrimeHistoryView.fxml");
+        }
     }
     
 }
