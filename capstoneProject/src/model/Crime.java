@@ -25,9 +25,6 @@ public class Crime {
     private String victim_address;
 //    private String police_name;
 //    private String badge_number;
-//    private String witness_name;
-//    private String witness_address;
-//    private String witness_phone;
     private String date_of_occurance;
     private String time_of_occurance;
     private String location_of_occurance;
@@ -51,9 +48,6 @@ public class Crime {
         this.victim_address = victim_address;
 //        this.police_name = police_name;
 //        this.badge_number = badge_number;
-//        this.witness_name = witness_name;
-//        this.witness_address = witness_address;
-//        this.witness_phone = witness_phone;
         this.date_of_occurance = date_of_occurance;
         this.time_of_occurance = time_of_occurance;
         this.location_of_occurance = location_of_occurance;
@@ -152,6 +146,14 @@ public class Crime {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getSentence() {
+        return sentence;
+    }
+
+    public void setSentence(String sentence) {
+        this.sentence = sentence;
     }
 
     

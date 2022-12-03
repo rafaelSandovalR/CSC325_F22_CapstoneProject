@@ -7,6 +7,7 @@ package controller;
 import app.Main;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.TreeMap;
 import javafx.beans.property.SimpleStringProperty;
@@ -47,28 +48,34 @@ public class CrimeHistoryViewController implements Initializable {
     @FXML
     private TableColumn<Crime, String> sentenceColumn;
 
-    
     private ObservableList<Crime> list = FXCollections.observableArrayList();
     private TreeMap<String, Crime> crimes = StoreAndBackUpData.getCrimes();
     public static Crime crime;
-    /**
-     * Initializes the controller class.
-     */
+
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        list.addAll(crimes.values());
+
+        for (Map.Entry<String, Crime> entry : crimes.entrySet()) {
+            if (entry.getValue().getCriminal().getId().equals(CriminalListController.criminal.getId())) {
+                list.add(entry.getValue());
+            }
+        }
         showCrimeList();
-    }    
-    
-    public void showCrimeList(){
+    }
+
+    public void showCrimeList() {
         dateColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getDate_of_occurance()));
         locationColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getLocation_of_occurance()));
+        victimColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getVictim_fName() + " " + data.getValue().getVictim_lName()));
+        descriptionColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getDescription()));
+        sentenceColumn.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getSentence()));
         crimeTable.setItems(list);
     }
 
     @FXML
-    private void backButtonPress(ActionEvent event) throws IOException{
+    private void backButtonPress(ActionEvent event) throws IOException {
         Main.setRoot("/view/CriminalListView.fxml");
     }
-    
+
 }
