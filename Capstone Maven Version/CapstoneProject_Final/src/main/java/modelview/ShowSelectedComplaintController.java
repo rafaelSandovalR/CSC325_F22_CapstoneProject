@@ -57,6 +57,7 @@ public class ShowSelectedComplaintController implements Initializable {
     private Label timeLabel;
 
     private void showComplaint() {
+        /*
         complaint = ComplaintHistoryController.complaint;
         if (complaints.containsValue(complaint)) {
             nameLabel.setText(complaint.getComplainant_fName() + " " + complaint.getComplainant_lName());
@@ -71,6 +72,7 @@ public class ShowSelectedComplaintController implements Initializable {
             locationOfComplaintLabel.setText(complaint.getLocation_of_occurance());
         } else {
         }
+*/
     }
 
     @FXML

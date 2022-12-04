@@ -1,22 +1,12 @@
 package modelview;
 
 import viewmodel.AddCriminalViewModel;
-import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.WriteResult;
 import com.mycompany.mvvmexample.App;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -24,10 +14,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.stage.Stage;
 import models.Criminal;
 import models.StoreAndBackUpData;
-import viewmodel.FileAComplaintViewModel;
 
 public class AddCriminalControllerView {
 
@@ -111,15 +99,19 @@ public class AddCriminalControllerView {
 
     private ObservableList<String> hairColorList = FXCollections
             .observableArrayList("Black", "Blonde", "Brown", "Red", "White");
+    
+    private Criminal criminalToAdd;
 
     @FXML
     private void initialize() {
 
+        criminalToAdd = new Criminal();
         stateComboBox.setItems(stateList);
         raceComboBox.setItems(raceList);
         ethnicityComboBox.setItems(ethnicityList);
         eyeColorComboBox.setItems(eyeColorList);
         hairColorComboBox.setItems(hairColorList);
+
         AddCriminalViewModel AddCriminalViewModel = new AddCriminalViewModel();
         firstNameField.textProperty().bindBidirectional(AddCriminalViewModel.criminalFirstNameProperty());
         lastNameField.textProperty().bindBidirectional(AddCriminalViewModel.criminalLastNameProperty());
@@ -130,8 +122,10 @@ public class AddCriminalControllerView {
         StreetField.textProperty().bindBidirectional(AddCriminalViewModel.streetProperty());
         CityField.textProperty().bindBidirectional(AddCriminalViewModel.cityProperty());
         stateComboBox.valueProperty().bindBidirectional(AddCriminalViewModel.stateComboBoxProperty());
+        /*
         MaleRadio.textProperty().bindBidirectional(AddCriminalViewModel.maleRadioProperty());
         FemaleRadio.textProperty().bindBidirectional(AddCriminalViewModel.femaleRadioProperty());
+         */
         feetField.textProperty().bindBidirectional(AddCriminalViewModel.feetProperty());
         inchesField.textProperty().bindBidirectional(AddCriminalViewModel.inchesProperty());
         weightField.textProperty().bindBidirectional(AddCriminalViewModel.weightProperty());
@@ -140,38 +134,6 @@ public class AddCriminalControllerView {
         eyeColorComboBox.valueProperty().bindBidirectional(AddCriminalViewModel.eyeColorComboBoxProperty());
         hairColorComboBox.valueProperty().bindBidirectional(AddCriminalViewModel.hairColorComboBoxProperty());
         addButton.disableProperty().bind(AddCriminalViewModel.isWritePossibleProperty().not());
-    }
-
-    public void addData() {
-
-        DocumentReference docRef = App.fstore.collection("AddCriminal").document(UUID.randomUUID().toString());
-        // Add document data  with id "alovelace" using a hashmap
-        Map<String, Object> data = new HashMap<>();
-        data.put("firstName", firstNameField.getText());
-        data.put("lastName", lastNameField.getText());
-        data.put("month", MonthField.getText());
-        data.put("day", DayField.getText());
-        data.put("year", YearField.getText());
-        data.put("placeOfBirth", placeOfBirthField.getText());
-        data.put("street", StreetField.getText());
-        data.put("city", CityField.getText());
-        data.put("stateComboBox", stateComboBox.getValue());
-        data.put("postalCode", PostalCodeField.getText());
-        data.put("maleRadio", MaleRadio.getText());
-        data.put("femaleRadio", FemaleRadio.getText());
-        data.put("feet", feetField.getText());
-        data.put("inches", inchesField.getText());
-        data.put("weight", weightField.getText());
-        data.put("raceComboBox", raceComboBox.getValue());
-        data.put("ethnicityComboBox", ethnicityComboBox.getValue());
-        data.put("eyeColorComboBox", eyeColorComboBox.getValue());
-        data.put("hairColorComboBox", hairColorComboBox.getValue());
-
-        //  data.put("Age", Integer.parseInt(ageField.getText()));
-        //asynchronously write data
-        ApiFuture<WriteResult> result = docRef.set(data);
-
-        // clearTextField();
     }
 
     @FXML
@@ -209,16 +171,14 @@ public class AddCriminalControllerView {
         Criminal c = new Criminal(firstName, lastName, dateOfBirth,
                 placeOfBirth, address, sex, height, weight, race,
                 ethnicity, eyeColor, hairColor);
-        StoreAndBackUpData.getCriminals().put(c.getId(), c);
-        addButton.setVisible(false);
-
+        
+        StoreAndBackUpData.addCriminal(c.getId(), c);
         System.out.println(c.toString());
     }
 
     @FXML
     void backToLoggedIn(ActionEvent event) throws IOException {
-        //Main.setRoot("/view/LoggedInView.fxml");
-
+        App.setRoot("/view/LoggedInView.fxml");
     }
 
 }

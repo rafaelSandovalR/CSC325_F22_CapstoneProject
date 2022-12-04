@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import models.StoreAndBackUpData;
 
 /**
  * JavaFX App
@@ -23,7 +24,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         fstore = contxtFirebase.firebase();
-
+        StoreAndBackUpData dt = new StoreAndBackUpData();
         Parent login = FXMLLoader.load(getClass().getResource("AddCriminalView.fxml")); //"FileAComplaintView.fxml"
         Scene scene = new Scene(login);
         primaryStage.setScene(scene);

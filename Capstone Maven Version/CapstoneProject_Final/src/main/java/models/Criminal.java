@@ -17,6 +17,22 @@ public class Criminal {
     private String hairColor;
     
     
+        public Criminal() {
+        id = rand();
+        fName = "N/A";
+        lName = "N/A";
+        date_of_birth = "N/A";
+        place_of_birth = "N/A";
+        address = "N/A";
+        sex = "N/A";
+        height = "N/A";
+        weight = "N/A";
+        race = "N/A";
+        ethnicity = "N/A";
+        eyeColor = "N/A";
+        hairColor = "N/A";
+    }
+    
 
     public Criminal(String fName, String lName, String date_of_birth, String place_of_birth, String address, String sex, String height, String weight, String race, String ethnicity, String eyeColor, String hairColor) {
         this.fName = fName;

@@ -1,6 +1,13 @@
 package models;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.WriteResult;
+import com.mycompany.mvvmexample.App;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TreeMap;
+import java.util.UUID;
 
 public class StoreAndBackUpData {
 
@@ -24,7 +31,7 @@ public class StoreAndBackUpData {
         return complaintsHistory;
     }
 
-    public void addOfficer(String badgeN, Officer user) {
+    public static void addOfficer(String badgeN, Officer user) {
         officerAccounts.put(badgeN, user);
     }
 
@@ -32,8 +39,30 @@ public class StoreAndBackUpData {
         return officerAccounts;
     }
 
-    public void addCriminal(String id, Criminal criminal) {
+    public static void addCriminal(String id, Criminal criminal) {
         criminals.put(id, criminal);
+        
+        DocumentReference docRef = App.fstore.collection("AddCriminal").document(UUID.randomUUID().toString());
+        // Add document data  with id "alovelace" using a hashmap
+        Map<String, Object> data = new HashMap<>();
+        data.put("firstName", criminal.getfName());
+        data.put("lastName", criminal.getlName());
+        data.put("dateOfBirth", criminal.getDate_of_birth());
+        data.put("placeOfBirth", criminal.getPlace_of_birth());
+        data.put("address", criminal.getAddress());
+        data.put("sex", criminal.getSex());
+        data.put("height", criminal.getHeight());
+        data.put("weight", criminal.getWeight());
+        data.put("race", criminal.getRace());
+        data.put("ethnicity", criminal.getEthnicity());
+        data.put("eyeColor", criminal.getEyeColor());
+        data.put("hairColor", criminal.getHairColor());
+
+        //  data.put("Age", Integer.parseInt(ageField.getText()));
+        //asynchronously write data
+        ApiFuture<WriteResult> result = docRef.set(data);
+
+        // clearTextField();
     }
 
     public static TreeMap<String, Criminal> getCriminals() {

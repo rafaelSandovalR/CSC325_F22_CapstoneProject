@@ -1,4 +1,4 @@
-package viewmodel;
+ package viewmodel;
 
 import javafx.beans.property.ReadOnlyBooleanProperty;
 import javafx.beans.property.ReadOnlyBooleanWrapper;

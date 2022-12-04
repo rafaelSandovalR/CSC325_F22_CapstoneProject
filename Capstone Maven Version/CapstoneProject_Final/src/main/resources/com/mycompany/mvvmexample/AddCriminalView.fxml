@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modelview.AddCriminalControllerView">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modelview.AddCriminalControllerView">
    <children>
       <BorderPane layoutY="3.0" prefWidth="600.0">
          <center>
@@ -218,7 +218,7 @@
                         <Insets top="15.0" />
                      </VBox.margin>
                   </Line>
-                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#addData" text="Add to database">
+                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#addCriminal" text="Add to database">
                      <VBox.margin>
                         <Insets left="195.0" top="30.0" />
                      </VBox.margin>
