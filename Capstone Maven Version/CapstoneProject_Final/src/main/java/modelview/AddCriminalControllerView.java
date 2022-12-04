@@ -104,7 +104,6 @@ public class AddCriminalControllerView {
 
     @FXML
     private void initialize() {
-
         criminalToAdd = new Criminal();
         stateComboBox.setItems(stateList);
         raceComboBox.setItems(raceList);
@@ -112,6 +111,7 @@ public class AddCriminalControllerView {
         eyeColorComboBox.setItems(eyeColorList);
         hairColorComboBox.setItems(hairColorList);
 
+        //Not sure if all of this is necessary
         AddCriminalViewModel AddCriminalViewModel = new AddCriminalViewModel();
         firstNameField.textProperty().bindBidirectional(AddCriminalViewModel.criminalFirstNameProperty());
         lastNameField.textProperty().bindBidirectional(AddCriminalViewModel.criminalLastNameProperty());
@@ -122,10 +122,6 @@ public class AddCriminalControllerView {
         StreetField.textProperty().bindBidirectional(AddCriminalViewModel.streetProperty());
         CityField.textProperty().bindBidirectional(AddCriminalViewModel.cityProperty());
         stateComboBox.valueProperty().bindBidirectional(AddCriminalViewModel.stateComboBoxProperty());
-        /*
-        MaleRadio.textProperty().bindBidirectional(AddCriminalViewModel.maleRadioProperty());
-        FemaleRadio.textProperty().bindBidirectional(AddCriminalViewModel.femaleRadioProperty());
-         */
         feetField.textProperty().bindBidirectional(AddCriminalViewModel.feetProperty());
         inchesField.textProperty().bindBidirectional(AddCriminalViewModel.inchesProperty());
         weightField.textProperty().bindBidirectional(AddCriminalViewModel.weightProperty());
@@ -138,7 +134,7 @@ public class AddCriminalControllerView {
 
     @FXML
     private void addCriminal(ActionEvent event) {
-
+        //Retrieve all input
         firstName = firstNameField.getText();
         lastName = lastNameField.getText();
         dateOfBirth = MonthField.getText()
@@ -149,14 +145,10 @@ public class AddCriminalControllerView {
                 + ", " + CityField.getText()
                 + ", " + stateComboBox.getValue()
                 + ", " + PostalCodeField.getText();
-
         ToggleGroup sexChoice = new ToggleGroup();
-
         MaleRadio.setToggleGroup(sexChoice);
         FemaleRadio.setToggleGroup(sexChoice);
-
         sex = ((RadioButton) sexChoice.getSelectedToggle()).getText();
-
         height = feetField.getText() + "' " + inchesField.getText() + "\"";
         weight = weightField.getText();
         race = raceComboBox.getValue();
@@ -164,21 +156,25 @@ public class AddCriminalControllerView {
         eyeColor = eyeColorComboBox.getValue();
         hairColor = hairColorComboBox.getValue();
 
+        //Display Confirmation
         Alert a = new Alert(AlertType.NONE);
         a.setAlertType(AlertType.CONFIRMATION);
         a.setContentText("You have successfully added a criminal!");
         a.show();
-        Criminal c = new Criminal(firstName, lastName, dateOfBirth,
+        
+        //Create Instance of Criminal
+        criminalToAdd = new Criminal(firstName, lastName, dateOfBirth,
                 placeOfBirth, address, sex, height, weight, race,
                 ethnicity, eyeColor, hairColor);
         
-        StoreAndBackUpData.addCriminal(c.getId(), c);
-        System.out.println(c.toString());
+        //Save criminal in Firestore
+        StoreAndBackUpData.addCriminal(criminalToAdd.getId(), criminalToAdd);
+        System.out.println(criminalToAdd.toString());
     }
 
     @FXML
     void backToLoggedIn(ActionEvent event) throws IOException {
-        App.setRoot("/view/LoggedInView.fxml");
+        App.setRoot("LoggedInView.fxml");
     }
 
 }

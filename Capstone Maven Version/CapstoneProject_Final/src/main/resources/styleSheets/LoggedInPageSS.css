@@ -1,0 +1,51 @@
+.root{
+    -fx-background-color: white;
+}
+
+#comlaintBtn{
+    -fx-background-color: darkslateblue;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, grey, 5, 0, 0, 8);
+}
+
+
+#comlaintBtn:hover {
+    -fx-background-color: lightslategray;
+}
+
+#comlaintBtn:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
+
+#criminalBtn{
+    -fx-background-color: darkslateblue;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, grey, 5, 0, 0, 8);
+}
+
+
+#criminalBtn:hover {
+    -fx-background-color: lightslategray;
+}
+
+#criminalBtn:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
+
+#fileBtn{
+    -fx-background-color: darkslateblue;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, grey, 5, 0, 0, 8);
+}
+
+
+#fileBtn:hover {
+    -fx-background-color: lightslategray;
+}
+
+#fileBtn:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
