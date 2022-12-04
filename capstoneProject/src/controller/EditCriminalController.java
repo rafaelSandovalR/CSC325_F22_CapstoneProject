@@ -8,8 +8,6 @@ import app.Main;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -33,8 +31,6 @@ import model.StoreAndBackUpData;
  */
 public class EditCriminalController implements Initializable {
 
-    @FXML
-    private Button backButton;
     @FXML
     private TextField firstNameField;
     @FXML
@@ -75,8 +71,6 @@ public class EditCriminalController implements Initializable {
     private ComboBox<String> eyeColorComboBox;
     @FXML
     private ComboBox<String> hairColorComboBox;
-    @FXML
-    private Button saveButton;
 
     private Criminal criminal;
 
@@ -188,8 +182,6 @@ public class EditCriminalController implements Initializable {
             }
         });
         StoreAndBackUpData.getCriminals().put(criminal.getId(), criminal);
-        saveButton.setVisible(false);
-
         System.out.println(criminal.toString());
 
     }
