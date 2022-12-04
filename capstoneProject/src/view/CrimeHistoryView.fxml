@@ -16,7 +16,7 @@
       <VBox prefHeight="650.0" prefWidth="650.0">
          <children>
             <Button fx:id="backBtn" mnemonicParsing="false" onAction="#backButtonPress" prefHeight="32.0" prefWidth="64.0" text="Back" />
-            <Label alignment="TOP_CENTER" prefWidth="650.0" text="Crime History for">
+            <Label fx:id="crimeHistoryTitle" alignment="TOP_CENTER" prefWidth="650.0" text="Crime History for">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

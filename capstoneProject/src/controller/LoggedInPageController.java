@@ -22,8 +22,6 @@ public class LoggedInPageController {
     private Button criminalBtn;
 
     @FXML
-    private MenuButton fileBtn;
-    @FXML
     private Pane pane;
 
     @FXML
@@ -49,6 +47,10 @@ public class LoggedInPageController {
     @FXML
     void viewCriminalListMethod(ActionEvent event) throws IOException {
         Main.setRoot("/view/CriminalListView.fxml");
+    }
+
+    @FXML
+    private void reviewComplaints(ActionEvent event) {
     }
 
 }

@@ -25,7 +25,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         StoreAndBackUpData dt = new StoreAndBackUpData();
 
-        //Test Criminal
+        //Test Data
         Criminal c = new Criminal("Raf", "Sandoval", "04/08/1967", "Stony Brook",
                 "123 Applewood Rd, Smithtown, NY, 11787", "Male", "5' 7\"", "170",
                 "White", "Latino", "Brown", "Black");
@@ -46,7 +46,7 @@ public class Main extends Application {
         StoreAndBackUpData.getCrimes().put(x.getCrime_id(), x);
         StoreAndBackUpData.getCrimes().put(x2.getCrime_id(), x2);
 
-        //Switch back to HomePageView.fxml
+        //TODO: change back to HomePageView.fxml
         scene = new Scene(loadFXML("/view/LoggedInView.fxml"));
         window = scene.getWindow();
 

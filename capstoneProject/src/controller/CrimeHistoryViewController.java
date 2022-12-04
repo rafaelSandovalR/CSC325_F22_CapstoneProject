@@ -17,6 +17,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import model.Crime;
@@ -47,15 +48,19 @@ public class CrimeHistoryViewController implements Initializable {
     private TableColumn<Crime, String> descriptionColumn;
     @FXML
     private TableColumn<Crime, String> sentenceColumn;
-
+    @FXML
+    private Label crimeHistoryTitle;
+    
     private ObservableList<Crime> list = FXCollections.observableArrayList();
     private TreeMap<String, Crime> crimes = StoreAndBackUpData.getCrimes();
     public static Crime crime;
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        crimeHistoryTitle.setText("Crime History for " + CriminalListController.criminal.getfName() + " " + CriminalListController.criminal .getlName());
         for (Map.Entry<String, Crime> entry : crimes.entrySet()) {
             if (entry.getValue().getCriminal().getId().equals(CriminalListController.criminal.getId())) {
                 list.add(entry.getValue());
