@@ -1,6 +1,6 @@
-package controller;
+package modelview;
 
-import app.Main;
+import com.mycompany.mvvmexample.App;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,44 +30,45 @@ public class LoggedInPageController implements Initializable{
     private Button criminalBtn;
 
     @FXML
+    private MenuButton fileBtn;
+    @FXML
     private Pane pane;
 
     @FXML
     void addCriminal(ActionEvent event) throws IOException {
         loggedIn = "true";
-        Main.setRoot("/view/AddCriminalView.fxml");
+        App.setRoot("/view/AddCriminalView.fxml");
     }
 
     @FXML
     void fileComplaint(ActionEvent event) throws IOException {
         loggedIn = "true";
-        Main.setRoot("/view/FileAComplaintView.fxml");
+        App.setRoot("/view/FileAComplaintView.fxml");
     }
 
     @FXML
     void logOutMethod(ActionEvent event) throws IOException {
         loggedIn = "false";
-        Main.setRoot("/view/HomePageView.fxml");
+        App.setRoot("/view/HomePageView.fxml");
     }
 
     @FXML
     void viewComplaintHistoryMethod(ActionEvent event) throws IOException {
         loggedIn = "true";
-         Main.setRoot("/view/ComplaintsHistoryView.fxml");
+         App.setRoot("/view/ComplaintsHistoryView.fxml");
     }
 
     @FXML
     void viewCriminalHistoryMethod(ActionEvent event) throws IOException {
         loggedIn = "true";
-        Main.setRoot("/view/ComplaintsHistoryView.fxml");
+        App.setRoot("/view/ComplaintsHistoryView.fxml");
     }
 
     @FXML
     void viewCriminalListMethod(ActionEvent event) throws IOException {
      loggedIn = "true";
-        Main.setRoot("/view/CriminalListView.fxml");
+        App.setRoot("/view/CriminalListView.fxml");
     }
-
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -75,10 +76,6 @@ public class LoggedInPageController implements Initializable{
         imageview.setImage(image);
         imageview.setFitHeight(645);
         imageview.setFitWidth(650);
-
-    @FXML
-    private void reviewComplaints(ActionEvent event) {
-
     }
 
 }

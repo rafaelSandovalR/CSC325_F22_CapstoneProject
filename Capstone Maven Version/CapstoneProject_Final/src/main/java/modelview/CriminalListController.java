@@ -1,6 +1,6 @@
-package controller;
+package modelview;
 
-import app.Main;
+import com.mycompany.mvvmexample.App;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,9 +23,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import model.Criminal;
-import model.StoreAndBackUpData;
-import model.Uniteable;
+import models.Criminal;
+import models.StoreAndBackUpData;
+import models.Uniteable;
 
 public class CriminalListController implements Initializable {
 
@@ -95,7 +95,13 @@ public class CriminalListController implements Initializable {
 
     @FXML
     public void backButtonPress(ActionEvent event) throws IOException {
-        Main.setRoot("/view/LoggedInView.fxml");
+        App.setRoot("/view/LoggedInView.fxml");
+    }
+
+
+    @FXML
+    public void goToCriminalEditView(ActionEvent event) throws IOException {
+        App.setRoot("/view/CriminalEditView.fxml");
     }
 
     @FXML
@@ -105,18 +111,13 @@ public class CriminalListController implements Initializable {
         if (criminalTable.getSelectionModel().getSelectedItem() == null) {
             //alertLabel.setVisible(true);
         } else {
-            Main.setRoot("/view/CriminalDetailView.fxml");
+            App.setRoot("/view/CriminalDetailView.fxml");
         }
     }
 
     @FXML
     public void goToCriminalHistoryView(ActionEvent event) throws IOException {
-        criminal = (Criminal) criminalTable.getSelectionModel().getSelectedItem();
-        if (criminalTable.getSelectionModel().getSelectedItem() == null) {
-            //alertLabel.setVisible(true);
-        } else {
-            Main.setRoot("/view/CrimeHistoryView.fxml");
-        }
+        App.setRoot("/view/CriminalHistoryView.fxml");
     }
 
 }
