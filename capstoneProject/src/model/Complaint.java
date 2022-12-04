@@ -98,7 +98,7 @@ public class Complaint implements Uniteable {
 
     private String rand() {
         String str = "";
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 4; i++) {
             str = str + (int)(Math.random() * (10 + 1 - 0)) + 0;
         }
         return str;

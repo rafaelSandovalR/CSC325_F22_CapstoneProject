@@ -76,7 +76,6 @@ public class ShowSelectedComplaintController implements Initializable {
     @FXML
     void backToComplaintHistory(ActionEvent event) throws IOException {
         Main.setRoot("/view/ComplaintsHistoryView.fxml");
-
     }
 
     @Override

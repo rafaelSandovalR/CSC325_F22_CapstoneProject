@@ -8,22 +8,6 @@
     -fx-height:645px;
 }
 
-#logInBtn{
-    -fx-background-color: darkslateblue;
-    -fx-text-fill: white;
-    -fx-effect: dropshadow(three-pass-box, grey, 5, 0, 0, 8);
-}
-
-
-#logInBtn:hover {
-    -fx-background-color: lightslategray;
-}
-
-#logInBtn:pressed {
-    -fx-scale-y: 0.9;
-    -fx-scale-x: 0.9;
-}
-
 #backBtn{
     -fx-background-color: darkslateblue;
     -fx-text-fill: white;
@@ -40,19 +24,50 @@
     -fx-scale-x: 0.9;
 }
 
-#signUpBtn{
+#editBtn{
     -fx-background-color: darkslateblue;
     -fx-text-fill: white;
     -fx-effect: dropshadow(three-pass-box, grey, 5, 0, 0, 8);
 }
 
 
-#signUpBtn:hover {
+#editBtn:hover {
     -fx-background-color: lightslategray;
 }
 
-#signUpBtn:pressed {
+#editBtn:pressed {
     -fx-scale-y: 0.9;
     -fx-scale-x: 0.9;
 }
 
+#historyBtn{
+    -fx-background-color: darkslateblue;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, grey, 5, 0, 0, 8);
+}
+
+
+#historyBtn:hover {
+    -fx-background-color: lightslategray;
+}
+
+#historyBtn:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
+
+#detailViewBtn{
+    -fx-background-color: darkslateblue;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, grey, 5, 0, 0, 8);
+}
+
+
+#detailViewBtn:hover {
+    -fx-background-color: lightslategray;
+}
+
+#detailViewBtn:pressed {
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
