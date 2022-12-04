@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -104,11 +105,6 @@ public class EditCriminalController implements Initializable {
     private ObservableList<String> hairColorList = FXCollections
             .observableArrayList("Black", "Blonde", "Brown", "Red", "White");
 
-    private boolean firstNameFieldChanged, lastNameFieldChanged, monthFieldChanged, dayFieldChanged,
-            yearFieldChanged, placeOfBirthFieldChanged, streetFieldChanged, cityFieldChanged, stateComboBoxChanged,
-            postalCodeFieldChanged, sexChoiceChanged, feetFieldChanged, inchesFieldChanged, weightFieldChanged,
-            raceComboBoxChanged, ethnicityComboBoxChanged, eyeColorComboBoxChanged, hairColorComboBoxChanged = false;
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         criminal = CriminalListController.criminal;
@@ -127,7 +123,6 @@ public class EditCriminalController implements Initializable {
         stateComboBox.setValue(address[2]);
         PostalCodeField.setText(address[3]);
 
-        ToggleGroup sexChoice = new ToggleGroup();
         MaleRadio.setToggleGroup(sexChoice);
         FemaleRadio.setToggleGroup(sexChoice);
 
@@ -150,8 +145,6 @@ public class EditCriminalController implements Initializable {
         eyeColorComboBox.setValue(criminal.getEyeColor());
         hairColorComboBox.setItems(hairColorList);
         hairColorComboBox.setValue(criminal.getHairColor());
-
-        setListeners();
     }
 
     @FXML
@@ -161,225 +154,43 @@ public class EditCriminalController implements Initializable {
 
     @FXML
     private void saveButtonPress(ActionEvent event) throws IOException {
-        boolean[] changes = {firstNameFieldChanged, lastNameFieldChanged, monthFieldChanged, dayFieldChanged,
-            yearFieldChanged, placeOfBirthFieldChanged, streetFieldChanged, cityFieldChanged, stateComboBoxChanged,
-            postalCodeFieldChanged, sexChoiceChanged, feetFieldChanged, inchesFieldChanged, weightFieldChanged,
-            raceComboBoxChanged, ethnicityComboBoxChanged, eyeColorComboBoxChanged, hairColorComboBoxChanged};
-
-        for (boolean fieldChange : changes) {
-            if (fieldChange == true) {
-                saveChanges();
-            }
-        }
-
-    }
-
-    private void setListeners() {
-        firstNameField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                firstNameFieldChanged = true;
-                System.out.println("First Name Changed");
-            }
-        });
-
-        lastNameField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                lastNameFieldChanged = true;
-                System.out.println("Last Name Changed");
-            }
-        });
-
-        MonthField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                monthFieldChanged = true;
-                System.out.println("Month Changed");
-            }
-        });
-
-        DayField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                dayFieldChanged = true;
-                System.out.println("Day Changed");
-            }
-        });
-
-        YearField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                yearFieldChanged = true;
-                System.out.println("Year Changed");
-            }
-        });
-
-        placeOfBirthField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                placeOfBirthFieldChanged = true;
-                System.out.println("POB Changed");
-            }
-        });
-
-        StreetField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                streetFieldChanged = true;
-                System.out.println("Street Changed");
-            }
-        });
-
-        CityField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                cityFieldChanged = true;
-                System.out.println("City Changed");
-            }
-        });
-
-        //TODO: need to check this when clicking edit button
-        /*
-        stateComboBox.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                System.out.println("Text Changed");
-            }
-        });
-         */
-        PostalCodeField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                postalCodeFieldChanged = true;
-                System.out.println("Postal Code Changed");
-            }
-        });
-
-        //TODO: need to check these when clicking edit button
-        /*
-        RadioButton MaleRadio
-        .textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                System.out.println("Text Changed");
-            }
-        });
-        
-
-        ToggleGroup sexChoice
-        .textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                System.out.println("Text Changed");
-            }
-        });
-
-        RadioButton FemaleRadio
-        .textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                System.out.println("Text Changed");
-            }
-        });
-         */
-        feetField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                feetFieldChanged = true;
-                System.out.println("Feet Changed");
-            }
-        });
-
-        inchesField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                inchesFieldChanged = true;
-                System.out.println("Inches Changed");
-            }
-        });
-
-        weightField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                weightFieldChanged = true;
-                System.out.println("Weight Changed");
-            }
-        });
-
-        //TODO: need to check these when clicking edit button
-        /*
-        raceComboBox.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                System.out.println("Text Changed");
-            }
-        });
-
-        ethnicityComboBox.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                System.out.println("Text Changed");
-            }
-        });
-
-        eyeColorComboBox.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                System.out.println("Text Changed");
-            }
-        });
-
-        hairColorComboBox.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                System.out.println("Text Changed");
-            }
-        });
-         */
-    }
-
-    private void saveChanges() {
         criminal.setfName(firstNameField.getText());
         criminal.setlName(lastNameField.getText());
-        
-        /*
-        dateOfBirth = MonthField.getText()
+        String dateOfBirth = MonthField.getText()
                 + "/" + DayField.getText()
                 + "/" + YearField.getText();
-        placeOfBirth = placeOfBirthField.getText();
-        address = StreetField.getText()
+        criminal.setDate_of_birth(dateOfBirth);
+        criminal.setPlace_of_birth(placeOfBirthField.getText());
+        String address = StreetField.getText()
                 + ", " + CityField.getText()
                 + ", " + stateComboBox.getValue()
                 + ", " + PostalCodeField.getText();
-
-        ToggleGroup sexChoice = new ToggleGroup();
-
-        MaleRadio.setToggleGroup(sexChoice);
-        FemaleRadio.setToggleGroup(sexChoice);
-
-        sex = ((RadioButton) sexChoice.getSelectedToggle()).getText();
-
-        height = feetField.getText() + "' " + inchesField.getText() + "\"";
-        weight = weightField.getText();
-        race = raceComboBox.getValue();
-        ethnicity = ethnicityComboBox.getValue();
-        eyeColor = eyeColorComboBox.getValue();
-        hairColor = hairColorComboBox.getValue();
+        criminal.setAddress(address);
+        criminal.setSex(((RadioButton) sexChoice.getSelectedToggle()).getText());
+        String height = feetField.getText() + "' " + inchesField.getText() + "\"";
+        criminal.setHeight(height);
+        criminal.setWeight(weightField.getText());
+        criminal.setRace(raceComboBox.getValue());
+        criminal.setEthnicity(ethnicityComboBox.getValue());
+        criminal.setEyeColor(eyeColorComboBox.getValue());
+        criminal.setHairColor(hairColorComboBox.getValue());
 
         Alert a = new Alert(Alert.AlertType.NONE);
         a.setAlertType(Alert.AlertType.CONFIRMATION);
-        a.setContentText("You have successfully added a criminal!");
-        a.show();
-        Criminal c = new Criminal(firstName, lastName, dateOfBirth,
-                placeOfBirth, address, sex, height, weight, race,
-                ethnicity, eyeColor, hairColor);
-*/
+        a.setContentText("Criminal Detail Changes Saved");
+        a.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                try {
+                    Main.setRoot("/view/CriminalDetailView.fxml");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
         StoreAndBackUpData.getCriminals().put(criminal.getId(), criminal);
         saveButton.setVisible(false);
 
-        
         System.out.println(criminal.toString());
-    }
 
+    }
 }
